@@ -8,11 +8,11 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      'Alice was beginning to get very tired of sitting by her sister on the bank.',
+      '' Can you play croquet ?'',
   'example2':
-      'Buda-Pesth seems a wonderful place.',
+      'Were you , yourself , ever to marry , she is the very woman for you .',
   'example3':
-      'Scepticism was as much the result of knowledge, as knowledge is of scepticism.'      
+      'You make me strange Euen to the disposition that I owe , When now I thinke you can behold such sights , And keepe the naturall Rubie of your Cheekes , When mine is blanch ' d with feare'      
 };
 
 function status(statusText) {
