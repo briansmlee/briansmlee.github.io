@@ -8,11 +8,11 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      '' Can you play croquet ?'',
+      ' Can you play croquet ?',
   'example2':
       'Were you , yourself , ever to marry , she is the very woman for you .',
   'example3':
-      'You make me strange Euen to the disposition that I owe , When now I thinke you can behold such sights , And keepe the naturall Rubie of your Cheekes , When mine is blanch ' d with feare'      
+      'You make me strange Euen to the disposition that I owe , When now I thinke you can behold such sights , And keepe the naturall Rubie of your Cheekes , When mine is blanch d with feare'      
 };
 
 function status(statusText) {
