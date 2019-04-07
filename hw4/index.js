@@ -8,11 +8,11 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      ' Can you play croquet ?',
+      'Alice was beginning to get very tired of sitting by her sister on the bank.',
   'example2':
-      'Were you , yourself , ever to marry , she is the very woman for you .',
+      'Buda-Pesth seems a wonderful place.',
   'example3':
-      'You make me strange Euen to the disposition that I owe , When now I thinke you can behold such sights , And keepe the naturall Rubie of your Cheekes , When mine is blanch d with feare'      
+      'Scepticism was as much the result of knowledge, as knowledge is of scepticism.'      
 };
 
 function status(statusText) {
@@ -76,7 +76,7 @@ async function urlExists(url) {
 async function loadHostedPretrainedModel(url) {
   status('Loading pretrained model from ' + url);
   try {
-    const model = await tf.loadModel(url);
+    const model = await tf.loadLayersModel(url);
     status('Done loading pretrained model.');
     disableLoadModelButtons();
     return model;
