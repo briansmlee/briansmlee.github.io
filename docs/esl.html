@@ -1,0 +1,11 @@
+---
+layout: page
+title: Studying ESL
+permalink: /esl/
+---
+<p>Summary of my learnings from <em>Elements of Statistical Learning</em>.</p>
+
+{% for chapter in site.esl_chapters %}
+  <li><a href="{{ chapter.url }}">{{ chapter.title }}</a></li>
+  </div>
+{% endfor %}
