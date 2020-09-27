@@ -35,6 +35,7 @@ plugins:
 collections:
   esl_chapters:
     output: true
+    sort_by: chapter
 
 # Exclude from processing.
 # The following items will not be processed, by default.

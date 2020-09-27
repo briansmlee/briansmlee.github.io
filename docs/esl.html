@@ -5,7 +5,8 @@ permalink: /esl/
 ---
 <p>Summary of my learnings from <em>Elements of Statistical Learning</em>.</p>
 
-{% for chapter in site.esl_chapters %}
-  <li><a href="{{ chapter.url }}">{{ chapter.title }}</a></li>
-  </div>
+<ul>
+{% for c in site.esl_chapters %}
+  <li><a href="{{ c.url }}">{{ c.chapter }}</a></li>
 {% endfor %}
+</ul>
