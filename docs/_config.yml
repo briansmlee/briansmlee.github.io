@@ -36,6 +36,9 @@ collections:
   esl_chapters:
     output: true
     sort_by: title
+  all_of_stats_chapters:
+    output: true
+    sort_by: title
 
 # Exclude from processing.
 # The following items will not be processed, by default.
