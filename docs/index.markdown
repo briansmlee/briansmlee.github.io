@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+Some things are both elegant and useful :)
