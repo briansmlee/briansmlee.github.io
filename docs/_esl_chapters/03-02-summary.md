@@ -5,4 +5,52 @@ permalink: /esl/3_2_summary/
 usemathjax: true
 ---
 
-WIP
+# Linear regression model
+
+Imagine a regression problem with feature vector $$ X \in \mathbb{R}^{p+1} $$ and response $$ Y \in \mathbb{R} $$.
+
+The **linear regression model**:
+1. Assumes that the **regression function** is a linear function of inputs: 
+$$E(Y \lvert X) = X^T \beta$$.
+1. Predicts output as a linear function of the parameters: $$ \hat{Y} = X^T \hat{\beta}$$.
+
+# Least squares estimation method
+
+We estimate the model parameter $$\beta$$ from training data: $$X$$ is $$N$$ x $$(p + 1)$$ and $$y$$ is $$N$$ x $$1$$. **Least squares (OLS) estimation method** finds the $$\hat{\beta}$$ that minimizes **residual sum of squares (RSS)**: $$\lVert y - X\hat{\beta} \rVert^2$$.
+
+**OLS estimate** has a unique solution $$\hat{\beta} = (X^T X)^{-1} X^T y$$, if $$X$$ has full column rank. Else, we can drop redundant features.
+
+Since $$X^T (y - X\hat{\beta}) = 0$$, residual vector is orthogonal to column space of $$X$$. Hence, $$\hat{y} = X \hat{\beta} = Hy$$ is orthogonal projection of $$y$$ onto column space of $$X$$. $$H$$ is **projection matrix**.
+
+# Statistical properties of the OLS estimate
+
+Assume following about true distribution of data:
+
+1. Features $$x_i$$ are fixed, not random variables.
+1. Responses $$y_i$$ are uncorrelated and have constant variance $$\sigma^2$$ : $$Var(y) = \sigma^2 I$$.
+
+Then, $$Var(\hat{\beta}) = \sigma^2 (X^T X)^{-1}$$. Additionally, assume:
+
+1. Again, regression function is a linear function of inputs: $$E(Y \lvert X) = X^T \beta$$.
+1. $$ Y = E(Y \lvert X) + \varepsilon $$, where $$ \varepsilon \sim N(0, \sigma^2) $$.
+
+Then, $$ \hat{\beta} \sim N(\beta, \sigma^2 (X^T X)^{-1}) $$. 
+
+# Estimate variance of $$y_i$$
+
+We further estimate $$\sigma^2$$ by $$ \hat{\sigma}^2 = \frac{\lVert y - \hat{y} \rVert^2}{N - (p + 1)}$$, so that $$ \hat{\sigma}^2 $$ is unbiased.
+
+Then, $$(N - p - 1) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{N - p - 1}$$.
+
+# Hypothesis testing and confidence intervals with OLS estimte
+
+# Gauss-Markov Theorem (3.2.2)
+
+# From univariate to multiple regression (3.2.3)
+
+# Multiple outputs
+
+
+
+
+
