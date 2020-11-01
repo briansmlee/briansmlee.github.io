@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 3.2 Linear Regression Models and Least Squares
-permalink: /esl/chapter_3_1/
+title: 3.2 Linear Regression Models and Least Squares - Derivations
+permalink: /esl/3_2_derivations/
 usemathjax: true
 ---
 
@@ -28,8 +28,6 @@ See [this Math StackExchange answer](https://stats.stackexchange.com/a/20230/261
 
 # (3.12), (3.13) Hypothesis testing of least squares parameter coefficients
 
-Chapter 4 from *Econometric Theory and Methods* by Davidson and Mackinnon provides a nice self-contained explanation of hypothesis testing in linear regression models. Specifically, see section 4.4.
+Chapter 4 from *Econometric Theory and Methods* by Davidson and Mackinnon provides a self-contained explanation of hypothesis testing in linear regression models. Specifically, see section 4.4.
 
-TODO: Read chapter 5 for confidence intervals.
 
-# 3.2.1
