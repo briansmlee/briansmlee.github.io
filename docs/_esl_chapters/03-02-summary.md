@@ -42,13 +42,13 @@ We further estimate $$\sigma^2$$ by $$ \hat{\sigma}^2 = \frac{\lVert y - \hat{y}
 
 Then, $$(N - p - 1) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{N - p - 1}$$.
 
-# Hypothesis testing and confidence intervals with OLS estimte
+# Hypothesis testing and confidence intervals with OLS estimate
 
 # Gauss-Markov Theorem (3.2.2)
 
 # From univariate to multiple regression (3.2.3)
 
-# Multiple outputs
+# Multiple outputs (3.2.4)
 
 
 
