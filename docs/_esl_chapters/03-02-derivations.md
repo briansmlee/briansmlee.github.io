@@ -34,5 +34,11 @@ TODO: Derive that T-statistic takes T-distribution.
 
 Chapter 4 from *Econometric Theory and Methods* by Davidson and Mackinnon provides a self-contained explanation of hypothesis testing in linear regression models. Specifically, see section 4.4.
 
+# (3.19) Gauss-Markov Theorem
+
+There are numerous proofs of the theorem online.
+
+![Derive (3.19)](/assets/esl/3.19.jpg)
+
 
 
