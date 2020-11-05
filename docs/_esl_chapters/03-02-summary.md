@@ -34,7 +34,7 @@ Assume following about true distribution of data:
 3. Again, regression function is a linear function of inputs: $$E(Y \lvert X) = X^T \beta$$.
 4. $$ Y = E(Y \lvert X) + \varepsilon $$, where $$ \varepsilon \sim N(0, \sigma^2) $$.
 
-Then, $$ \hat{\beta} \sim N(\beta, \sigma^2 (X^T X)^{-1}) $$. 
+	Then, $$ \hat{\beta} \sim N(\beta, \sigma^2 (X^T X)^{-1}) $$. 
 
 # Estimate variance of $$y_i$$
 
