@@ -27,12 +27,12 @@ Since $$X^T (y - X\hat{\beta}) = 0$$, residual vector is orthogonal to column sp
 Assume following about true distribution of data:
 
 1. Features $$x_i$$ are fixed, not random variables.
-1. Responses $$y_i$$ are uncorrelated and have constant variance $$\sigma^2$$ : $$Var(y) = \sigma^2 I$$.
+2. Responses $$y_i$$ are uncorrelated and have constant variance $$\sigma^2$$ : $$Var(y) = \sigma^2 I$$.
 
-Then, $$Var(\hat{\beta}) = \sigma^2 (X^T X)^{-1}$$. Additionally, assume:
+	Then, $$Var(\hat{\beta}) = \sigma^2 (X^T X)^{-1}$$. Additionally, assume:
 
-1. Again, regression function is a linear function of inputs: $$E(Y \lvert X) = X^T \beta$$.
-1. $$ Y = E(Y \lvert X) + \varepsilon $$, where $$ \varepsilon \sim N(0, \sigma^2) $$.
+3. Again, regression function is a linear function of inputs: $$E(Y \lvert X) = X^T \beta$$.
+4. $$ Y = E(Y \lvert X) + \varepsilon $$, where $$ \varepsilon \sim N(0, \sigma^2) $$.
 
 Then, $$ \hat{\beta} \sim N(\beta, \sigma^2 (X^T X)^{-1}) $$. 
 
@@ -45,6 +45,8 @@ Then, $$(N - p - 1) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{N - p - 1}$$.
 # Hypothesis testing and confidence intervals with OLS estimate
 
 # Gauss-Markov Theorem (3.2.2)
+
+Given the assumptions 1 to 3 from above, the OLS estimate has the smallest variance (and therefore also the mean squared error and expected prediction error) among all linear unbiased estimates.
 
 # From univariate to multiple regression (3.2.3)
 
