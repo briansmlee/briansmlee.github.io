@@ -33,7 +33,7 @@ plugins:
   - jekyll-feed
 
 collections:
-  esl_chapters:
+  esl_posts:
     output: true
     sort_by: title
   all_of_stats_chapters:

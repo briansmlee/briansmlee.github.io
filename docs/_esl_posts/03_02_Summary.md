@@ -1,7 +1,10 @@
 ---
 layout: page
 title: 3.2 Linear Regression Models and Least Squares - Summary
-permalink: /esl/3_2_summary/
+permalink: /esl/03_02_Summary/
+chapter: 03_02
+chapter_title: 3.2 Linear Regression Models and Least Squares
+type: Summary
 usemathjax: true
 ---
 

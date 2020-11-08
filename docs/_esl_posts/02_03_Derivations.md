@@ -1,7 +1,10 @@
 ---
 layout: page
-title: 2.3 Least squares and Nearest Neighbors
-permalink: /esl/chapter_2_3/
+title: 2.3 Least squares and Nearest Neighbors - Derivations
+permalink: /esl/02_03_Derivations/
+chapter: 02_03
+chapter_title: 2.3 Least squares and Nearest Neighbors
+type: Derivations
 usemathjax: true
 ---
 

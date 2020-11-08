@@ -1,7 +1,10 @@
 ---
 layout: page
 title: 3.2 Linear Regression Models and Least Squares - Derivations
-permalink: /esl/3_2_derivations/
+permalink: /esl/03_02_Derivations/
+chapter: 03_02
+chapter_title: 3.2 Linear Regression Models and Least Squares
+type: Derivations
 usemathjax: true
 ---
 

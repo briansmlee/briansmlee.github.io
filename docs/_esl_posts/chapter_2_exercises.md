@@ -1,7 +1,10 @@
 ---
 layout: page
-title: Chapter 2 Exercises
-permalink: /esl/chapter_2_exercises/
+title: 2.3 Least squares and Nearest Neighbors - Exercises
+permalink: /esl/02_03_Exercises/
+chapter: 02_03
+chapter_title: 2.3 Least squares and Nearest Neighbors
+type: Exercises
 usemathjax: true
 ---
 

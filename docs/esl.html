@@ -3,10 +3,22 @@ layout: page
 title: ESL
 permalink: /esl/
 ---
-<p>Summary of notes and learnings from <em>Elements of Statistical Learning</em>.</p>
+<p>Summary of notes and learnings from <em>Elements of Statistical Learning</em> by Hastie, Tibshirani, and Friedman.</p>
+
+{% assign posts_by_chapter = site.esl_posts | group_by:"chapter" %}
 
 <ul>
-{% for c in site.esl_chapters %}
-  <li><a href="{{ c.url }}">{{ c.title }}</a></li>
+{% for chapter_group in posts_by_chapter %}
+
+	{% assign posts_in_chapter = chapter_group.items %}
+
+	<li>{{ posts_in_chapter[0].chapter_title }}</li>
+
+	<ul>
+	{% for post in posts_in_chapter %}
+		<li><a href="{{ post.url }}">{{ post.type }}</a></li>
+	{% endfor %}
+	</ul>
+
 {% endfor %}
 </ul>
