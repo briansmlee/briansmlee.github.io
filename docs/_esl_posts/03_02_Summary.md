@@ -49,9 +49,23 @@ Then, $$(N - p - 1) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{N - p - 1}$$.
 
 # Gauss-Markov Theorem (3.2.2)
 
-Given the assumptions 1 to 3 from above, the OLS estimate has the smallest variance (and therefore also the mean squared error and expected prediction error) among all linear unbiased estimates.
+Given the assumptions 1 to 3 from above, the OLS estimate has the smallest variance (as well as the Mean Squared Error and Expected Prediction Error) among all linear unbiased estimates.
 
 # From univariate to multiple regression (3.2.3)
+
+If input features are orthogonal, each multiple linear regression OLS estimate $$\hat{\beta}_i$$ is equal to the univariate estimate of regressing $$y$$ on $$x_i$$. 
+
+
+However, input features are usually not orthogonal, so we orthogonalize them by Gram-Schmidt procedure. Then, $$\hat{\beta}_p$$ is equal to the univariate estimate of regressing $$y$$ on $$z_p$$, the residual after regressing $$x_p$$ on all other features. Also, $$Var(\hat{\beta}_p)$$ = $$ \sigma^2 / \lVert z_p \rVert^2 $$, so $$\hat{\beta}_p$$ is unstable if $$z_p$$ is close to 0.
+
+
+In matrix form, we obtain the QR decomposition, $$ X = Z D^{-1} D \Gamma = QR$$, where $$Q$$ is a N x (p+1) orthonormal matrix and $$R$$ is an upper triangular (invertible) matrix. Then, we obtain the entire OLS estimate $$\hat{\beta} = R^{-1}Q^T y$$ and $$\hat{y} = QQ^T y$$.
+
+
+
+
+
+
 
 # Multiple outputs (3.2.4)
 
