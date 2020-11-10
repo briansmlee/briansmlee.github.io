@@ -12,13 +12,13 @@ permalink: /esl/
 
 	{% assign posts_in_chapter = chapter_group.items %}
 
-	<li>{{ posts_in_chapter[0].chapter_title }}</li>
-
-	<ul>
-	{% for post in posts_in_chapter %}
-		<li><a href="{{ post.url }}">{{ post.type }}</a></li>
-	{% endfor %}
-	</ul>
+	<li>
+	{{ posts_in_chapter[0].chapter_title }} 
+	[{% for post in posts_in_chapter %}
+		<a href="{{ post.url }}">{{ post.type }}</a>
+		{% if forloop.last == false %} | {% endif %}
+	{% endfor %}]
+	</li>
 
 {% endfor %}
 </ul>
