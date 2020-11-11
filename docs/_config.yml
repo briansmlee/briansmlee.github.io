@@ -35,7 +35,7 @@ plugins:
 collections:
   esl_posts:
     output: true
-    sort_by: title
+    sort_by: chapter
   all_of_stats_chapters:
     output: true
     sort_by: title
