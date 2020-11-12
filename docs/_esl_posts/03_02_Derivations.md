@@ -13,9 +13,9 @@ usemathjax: true
 
 Reference: [EdX ColumbiaX Machine Learning](https://www.edx.org/course/machine-learning), Lecture 3.
 
-# (3.8) Estimate $$\hat{\sigma}^2$$ of $$y_i$$'s variance $$\sigma^2$$ is unbiased
+# (3.8) Estimate $\hat{\sigma}^2$ of $y_i$'s variance $\sigma^2$ is unbiased
 
-See [this Math StackExchange answer](https://math.stackexchange.com/a/2342977/455856). Note that this answer assumes that the variance $$\sigma^2$$ of $$y_i$$ comes from $$\varepsilon \sim N(0, \sigma^2)$$.
+See [this Math StackExchange answer](https://math.stackexchange.com/a/2342977/455856). Note that this answer assumes that the variance $\sigma^2$ of $y_i$ comes from $\varepsilon \sim N(0, \sigma^2)$.
 
 TODO: Is it possible to derive without the assumption above?
 
@@ -23,7 +23,7 @@ TODO: Is it possible to derive without the assumption above?
 
 ![Derive (3.10)](/assets/esl/3.10.jpg)
 
-# (3.11) $$\hat{\sigma}^2$$ has chi-squared distribution with $$N-p-1$$
+# (3.11) $\hat{\sigma}^2$ has chi-squared distribution with $N-p-1$
 
 See [this Math StackExchange answer](https://stats.stackexchange.com/a/20230/261782). Below slightly extends the answer by using (imo) a bit easier linear algebra.
 

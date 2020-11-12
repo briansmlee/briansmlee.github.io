@@ -14,13 +14,12 @@ Because subset selection is discrete, resulting model can have high variance. Sh
 
 # 3.4.1 Ridge Regression
 
-Minimize penalized  ($$\lambda \beta^T \beta$$) RSS. $$\lambda$$ is complexity parameter.
+Minimize penalized  ($\lambda \beta^T \beta$) RSS. $\lambda$ is complexity parameter.
 
 With OLS, coefficients of correlated features can have high variance; large positive coefficients offset effect of large negative coefficients.
 
 Need input normalization:
-1. Need to standardize features, because coefficients of smaller features will be penalized more.
-2. Intercept $$\beta_0$$ is not included in penalty term. Estimate $$\beta_0 = \overline{y}$$. Estimate other coefficients with feature-centered inputs.
+1. Standardize features, because coefficients of smaller-scaled features will be penalized more.
+2. Intercept $\beta_0$ is not included in penalty term. Estimate $\beta_0 = \overline{y}$ and estimate other coefficients with feature-centered inputs.
 
-Estimate is $$ \hat{\beta_{RR}} = (X^T X + \lambda I)^{-1} X^T y $$.
-
+Estimate is $ \hat{\beta_{RR}} = (X^T X + \lambda I)^{-1} X^T y $, where $X^T X + \lambda I$ is invertible.
