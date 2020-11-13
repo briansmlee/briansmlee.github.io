@@ -20,3 +20,18 @@ Adding $\lambda I$ shifts each eigenvalue of $X^T X$ by $\lambda$: $(X^T X + \la
 
 Because all eigenvalues of $X^T X + \lambda I$ are positive, it is invertible. That is, by contradiction, if we assume $X^T X + \lambda I$ is singular, then $\exists x \neq 0$ s.t. $(X^T X + \lambda I)x = 0$, but then $0$ is an eigenvalue.
 
+# (3.47) Express ridge regression estimate using SVD of X
+
+$$ \begin{equation*} \begin{split}
+X\hat{\beta}_{RR} &= X(X^TX + \lambda I)^{-1}X^Ty \\ 
+&= UDV^T (VD^TU^T UDV^T + \lambda I)^{-1}VD^TU^Ty \\
+&= UDV^T (VD^2 V^T + \lambda VV^T)^{-1}VD^TU^Ty \\
+&= UDV^T (V (D^2 + \lambda I)V^T)^{-1}VD^TU^Ty \\
+&= UDV^T V^{-T} (D^2 + \lambda I)^{-1} V^{-1} VD^TU^Ty \\
+&= UD(D^2 + \lambda I)^{-1} DU^Ty
+\end{split} \end{equation*} $$
+
+$D(D^2 + \lambda I)^{-1} D$ is a diagonal matrix with $j$-th diagonal entry as $d_j^2 / (d_j^2 + \lambda)$. So, $j$-th column of $UD(D^2 + \lambda I)^{-1} D$ is $u_j \frac{d_j^2}{d_j^2 + \lambda}$. By right-multiplying $U^T$, we obtain (3.47), a sum of outer products.
+
+
+
