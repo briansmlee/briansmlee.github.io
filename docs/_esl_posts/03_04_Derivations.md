@@ -20,7 +20,7 @@ Adding $\lambda I$ shifts each eigenvalue of $X^T X$ by $\lambda$: $(X^T X + \la
 
 Because all eigenvalues of $X^T X + \lambda I$ are positive, it is invertible. That is, by contradiction, if we assume $X^T X + \lambda I$ is singular, then $\exists x \neq 0$ s.t. $(X^T X + \lambda I)x = 0$, but then $0$ is an eigenvalue.
 
-# (3.47) Express ridge regression estimate using SVD of X
+# (3.47) Analyze ridge regression estimate using SVD of $X$
 
 $$ \begin{equation*} \begin{split}
 X\hat{\beta}_{RR} &= X(X^TX + \lambda I)^{-1}X^Ty \\ 
@@ -33,5 +33,8 @@ X\hat{\beta}_{RR} &= X(X^TX + \lambda I)^{-1}X^Ty \\
 
 $D(D^2 + \lambda I)^{-1} D$ is a diagonal matrix with $j$-th diagonal entry as $d_j^2 / (d_j^2 + \lambda)$. So, $j$-th column of $UD(D^2 + \lambda I)^{-1} D$ is $u_j \frac{d_j^2}{d_j^2 + \lambda}$. By right-multiplying $U^T$, we obtain (3.47), a sum of outer products.
 
+Hence, features with smaller singular values $d_j$ are shrinked more.
+
+# (3.49) Principal component $v_1$ of $X$ has $z_1 = Xv_1$ with max variance
 
 
