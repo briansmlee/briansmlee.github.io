@@ -10,7 +10,7 @@ usemathjax: true
 
 # (3.44) Ridge regression estimate
 
-Follows from least squares derivations, because $\frac{\partial}{\partial \beta} \lambda \beta^T \beta = 2 \lambda \beta$.
+Follows from OLS estimate derivation, because $\frac{\partial}{\partial \beta} \lambda \beta^T \beta = 2 \lambda \beta$.
 
 # $X^T X + \lambda I$ is invertible
 
@@ -69,7 +69,8 @@ Reference:
 
 Follows from (3.47) and cyclic property of the trace.
 
+# Lasso estimate has no closed form expression 
 
-
+TODO
 
 
