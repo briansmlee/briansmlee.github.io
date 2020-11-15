@@ -35,7 +35,7 @@ $D(D^2 + \lambda I)^{-1} D$ is a diagonal matrix with $j$-th diagonal entry as $
 
 Hence, features with smaller singular values $d_j$ are shrinked more.
 
-# $z_1 = Xv_1$ has largest variance among all normalized linear combinations of columns of $X$.
+# $z_1 = Xv_1$ has largest variance among all normalized linear combinations of columns of $X$
 
 TODO: Derive from optimization formulation of PCA. See _Mathematics for Machine Learning_, equation (10.10).
 
@@ -66,7 +66,9 @@ Reference:
 - "[Principal Component Analysis from Statistical and Machine Learning Perspectives (Part 1)](https://towardsdatascience.com/principal-component-analysis-ceb42ed04d77)" by Suhyun Kim.
 
 
+# (3.50) Effective degrees of freedom of ridge regression
 
+Follows from (3.47) and cyclic property of the trace.
 
 
 
