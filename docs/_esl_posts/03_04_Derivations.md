@@ -35,21 +35,40 @@ $D(D^2 + \lambda I)^{-1} D$ is a diagonal matrix with $j$-th diagonal entry as $
 
 Hence, features with smaller singular values $d_j$ are shrinked more.
 
-# Principal component $v_1$ of $X$ has $z_1 = Xv_1$ with max variance
+# $z_1 = Xv_1$ has largest variance among all normalized linear combinations of columns of $X$.
 
-TODO: optimization formulation.
+TODO: Derive from optimization formulation of PCA. See _Mathematics for Machine Learning_, equation (10.10).
+
+Let $z = Xa$ be a normalized linear combination of columns of $X$. That is, $\lVert a \rVert^2 = 1$. $v_1$ is one such $a$.
+
+Then, following the derivation of (3.49) below, we obtain $Var(z) = Var(Xa) = a^TVD^2V^Ta$.
+
+Let $b = V^Ta$. Then, $Var(z) = b^TD^2b = \sum_{i,j} b_i d_{i,j}^2 b_j$, which is equal to $\sum_i b_i^2 d_{i,i}^2$ because $D$ is diagonal.
+
+Note that, $\sum_i b_i^2 = b^T b = a^TVV^Ta = a^Ta = \lVert a \rVert^2 = 1$. Hence, $Var(z) = \sum_i b_i^2 d_{i,i}^2$ is a weighted sum of the singular values s.t. the weights sum to 1.
+
+What is the weight that maximizes $Var(z)$? Since first singular value is the largest, best weight is $e_1 = [1, 0, ..., 0]^T$, which is given by setting $a$ to $v_1$.
+
 
 # (3.49) $Var(Xv_1) = d_1^2 / N$
 
-Note $\overline{Xv_1} = \frac{1}{N} \sum_i^N (Xv_1)_i = \frac{1}{N} [\sum_i^N {x_i}^T ] v_1 = 0$ because features in $X$ were centered. Hence:
+Note $\overline{Xv_1} = \frac{1}{N} \sum_i^N (Xv_1)_i = \frac{1}{N} [\sum_i^N {x_i}^T ] v_1 = 0$ because features in $X$ were centered. Hence,
 
 $$ \begin{equation*} \begin{split}
 N \cdot Var(Xv_1) &= \sum_i^N ((Xv_1)_i - \overline{Xv_1})^2\\
 &= (Xv_1)^T Xv_1\\
 &= v_1^TVD^2V^Tv_1 && \text{by SVD from (3.48)}\\
-&= {e_1}^TD^2e_1 && \text{where $e_1$ is the first column of $I_p$}\\
+&= {e_1}^TD^2e_1 && \text{where $e_1 = [1, 0, ..., 0]^T$}\\
 &= d_1^2
 \end{split} \end{equation*} $$
 
 Reference:
-- [Principal Component Analysis from Statistical and Machine Learning Perspectives (Part 1)](https://towardsdatascience.com/principal-component-analysis-ceb42ed04d77) by Suhyun Kim
+- "[Principal Component Analysis from Statistical and Machine Learning Perspectives (Part 1)](https://towardsdatascience.com/principal-component-analysis-ceb42ed04d77)" by Suhyun Kim.
+
+
+
+
+
+
+
+
