@@ -37,9 +37,7 @@ Hence, features with smaller singular values $d_j$ are shrinked more.
 
 # $z_1 = Xv_1$ has largest variance among all normalized linear combinations of columns of $X$
 
-TODO: Derive from optimization formulation of PCA. See _Mathematics for Machine Learning_, equation (10.10).
-
-Let $z = Xa$ be a normalized linear combination of columns of $X$. That is, $\lVert a \rVert^2 = 1$. $v_1$ is one such $a$.
+Let $z = Xa$ be a normalized linear combination of columns of $X$. That is, $\lVert a \rVert^2 = 1$. $v_1$ is such $a$.
 
 Then, following the derivation of (3.49) below, we obtain $Var(z) = Var(Xa) = a^TVD^2V^Ta$.
 
@@ -47,8 +45,9 @@ Let $b = V^Ta$. Then, $Var(z) = b^TD^2b = \sum_{i,j} b_i d_{i,j}^2 b_j$, which i
 
 Note that, $\sum_i b_i^2 = b^T b = a^TVV^Ta = a^Ta = \lVert a \rVert^2 = 1$. Hence, $Var(z) = \sum_i b_i^2 d_{i,i}^2$ is a weighted sum of the singular values s.t. the weights sum to 1.
 
-What is the weight that maximizes $Var(z)$? Since first singular value is the largest, best weight is $e_1 = [1, 0, ..., 0]^T$, which is given by setting $a$ to $v_1$.
+What are the weights that maximize $Var(z)$? Since first singular value is the largest, best weights are $e_1 = [1, 0, ..., 0]^T$, which is given by setting $a$ to $v_1$.
 
+TODO: Derive from optimization formulation of PCA. See _Mathematics for Machine Learning_, equation (10.10).
 
 # (3.49) $Var(Xv_1) = d_1^2 / N$
 
