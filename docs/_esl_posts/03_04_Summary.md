@@ -32,12 +32,23 @@ Effective degrees of freedom is $df(\lambda) = \sum_i^p \frac{d_i^2}{d_i^2 + \la
 
 # 3.4.2 Lasso
 
-$L_1$ penalty $\sum_1^p \lVert \beta_j \rVert \leq t$.
+$L_1$ penalty $\sum_1^p \lvert \beta_j \rvert \leq t$.
 
 Solution is nonlinear w.r.t. $y_i$, and there is no closed form solution. Use LAR (3.4.4) for minimizing Lasso penalty.
 
 Continuous subset selection: sufficiently small $t$ will cause some coefficients to be zero. 
 
-Standardized parameter is $ s = t / \sum_1^p \lVert \hat{\beta}^{LS}\_i \rVert$.
+Standardized parameter is $ s = t / \sum_1^p \lvert \hat{\beta}^{LS}\_i \rvert$.
 
+# 3.4.3 Subset selection, ridge regression, and Lasso
 
+If features are orthonormal, Lasso also has closed form estimate. Ridge is proportional shrinkage, Lasso is soft-thresholding (shrink to drop), subset selection is hard-thresholding (drop or not).
+
+Estimation picture (Figure 3.11). Equi-RSS elliptical contours centered at $\hat{\beta}\_{LS}$ meet $L_q$ constraint region.
+- When $p > 2$, Lasso constraint region has many corners, setting parameters to $0$. 
+- Lasso has smallest $q = 1$ s.t. constraint region is convex; if $q < 1$ optimization is more difficult.
+- If $q > 1$, $\lvert \beta_j \rvert^q$ is differentiable at 0, so doesn't drop coefficients to 0.
+
+TODO: Elastic-net penalty
+
+TODO: Bayesian interpretation
