@@ -8,6 +8,9 @@ type: Derivations
 usemathjax: true
 ---
 
+* toc
+{:toc}
+
 ### (3.44) Ridge regression estimate
 
 Follows from OLS estimate derivation, because $\frac{\partial}{\partial \beta} \lambda \beta^T \beta = 2 \lambda \beta$.

@@ -8,6 +8,9 @@ type: Exercises
 usemathjax: true
 ---
 
+* toc 
+{:toc}
+
 ### 2.1
 
 (I will write the prediction $\hat{y}$ as $y$.)

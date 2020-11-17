@@ -8,6 +8,9 @@ type: Summary
 usemathjax: true
 ---
 
+* toc
+{:toc}
+
 ### Subset selection
 
 By retaining a subset of features, we can improve:

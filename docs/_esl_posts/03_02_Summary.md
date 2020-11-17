@@ -8,6 +8,9 @@ type: Summary
 usemathjax: true
 ---
 
+* toc
+{:toc}
+
 ### Linear regression model
 
 Imagine a regression problem with feature vector $ X \in \mathbb{R}^{p+1} $ and response $ Y \in \mathbb{R} $.

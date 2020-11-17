@@ -8,6 +8,9 @@ type: Derivations
 usemathjax: true
 ---
 
+* toc
+{:toc}
+
 ### (3.8) Covariance matrix of OLS estimate
 ![Derive (3.8)](/assets/esl/3.8.jpg)
 

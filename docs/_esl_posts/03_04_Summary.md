@@ -8,6 +8,9 @@ type: Summary
 usemathjax: true
 ---
 
+* toc
+{:toc}
+
 ### Shrinkage Methods
 
 Because subset selection is discrete, resulting model can have high variance. Shrinkage methods are more continuous.
