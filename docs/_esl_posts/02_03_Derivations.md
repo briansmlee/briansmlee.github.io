@@ -8,7 +8,7 @@ type: Derivations
 usemathjax: true
 ---
 
-# Derive normal equations
+### Derive normal equations
 
 Suppose $y$ is a N x 1 vector with N responses from training data, $X$ is N x d matrix with d features in each row, and $\beta$ is d x 1 parameters. 
 
@@ -37,31 +37,5 @@ $ \frac{\partial}{\partial \beta} RSS = - 2 X^T y + 2 X^T X \beta$
 
 By setting the derivative to a vector of zeros, we obtain the normal equation, $ X^T (y - X\beta) = 0$.
 
-# Reference
+### Reference
 - [Matrix Calculus by Randal J. Barnes](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf), Section 5.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

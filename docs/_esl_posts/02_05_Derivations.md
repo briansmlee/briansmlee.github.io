@@ -10,13 +10,13 @@ usemathjax: true
 
 Curse of dimensionality
 
-# Cube example
+### Cube example
 
 Suppose a p-dimensional hypercube. The edge length $e$ of the hypercube that captures fraction $r$ of the volume is $e = r^{1/p}$ because $r / 1 = e^p$. 
 
 For example, in 10-dimensions, edge length of 0.5 captures only 0.001 of the volume.
 
-# Bias-variance decomposition of MSE
+### Bias-variance decomposition of MSE
 
 See (2.25). I will write the true value $f(x_0)$ as $f$ and prediction $\hat{y}$ as $y$. All expectations are across the training set $T$.
 

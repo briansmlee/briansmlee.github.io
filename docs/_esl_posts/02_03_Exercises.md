@@ -8,7 +8,7 @@ type: Exercises
 usemathjax: true
 ---
 
-# 2.1
+### 2.1
 
 (I will write the prediction $\hat{y}$ as $y$.)
 

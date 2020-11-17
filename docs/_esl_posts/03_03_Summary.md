@@ -8,13 +8,13 @@ type: Summary
 usemathjax: true
 ---
 
-# Subset selection
+### Subset selection
 
 By retaining a subset of features, we can improve:
 1. Prediction accuracy, by trading higher bias for lower variance.
 2. Interpretability, by narrowing down features with strongest effects.
 
-# 3.3.1 Best-subset selection
+### 3.3.1 Best-subset selection
 
 For each subset size $k$ from $0$ to $p$, finds subset that gives smallest RSS. 
 
@@ -22,7 +22,7 @@ For each subset size $k$ from $0$ to $p$, finds subset that gives smallest RSS.
 2. Produce sequence of models increasing in complexity: RSS of the best subset decreases as $k$ increases, so cannot use RSS to select $k$.
 3. Computationally infeasible if $p > 40$.
 
-# 3.3.2 Forward and backward stepwise selection
+### 3.3.2 Forward and backward stepwise selection
 
 Forward: Begin with intercept. Sequentially add a feature that decreases RSS the most.
 
@@ -34,6 +34,6 @@ Backward: Sequentially removes feature with smallest Z-score.
 
 Unlike Forward, Backward cannot be used if $ N <= p $. TODO: why? Z-score calculation?
 
-# 3.3.3 Forward-Stagewise regression
+### 3.3.3 Forward-Stagewise regression
 
 TODO

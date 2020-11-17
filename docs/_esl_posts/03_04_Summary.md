@@ -8,11 +8,11 @@ type: Summary
 usemathjax: true
 ---
 
-# Shrinkage Methods
+### Shrinkage Methods
 
 Because subset selection is discrete, resulting model can have high variance. Shrinkage methods are more continuous.
 
-# 3.4.1 Ridge Regression
+### 3.4.1 Ridge Regression
 
 Minimizes penalized  ($\lambda \beta^T \beta$) RSS. $\lambda$ is complexity parameter.
 
@@ -30,7 +30,7 @@ Also, first principal component $z_1 = Xv_1$ has maximal variance among all dire
 
 Effective degrees of freedom is $df(\lambda) = \sum_i^p \frac{d_i^2}{d_i^2 + \lambda}$.
 
-# 3.4.2 Lasso
+### 3.4.2 Lasso
 
 $L_1$ penalty $\sum_1^p \lvert \beta_j \rvert \leq t$.
 
@@ -40,7 +40,7 @@ Continuous subset selection: sufficiently small $t$ will cause some coefficients
 
 Standardized parameter is $ s = t / \sum_1^p \lvert \hat{\beta}^{LS}\_i \rvert$.
 
-# 3.4.3 Subset selection, ridge regression, and Lasso
+### 3.4.3 Subset selection, ridge regression, and Lasso
 
 If features are orthonormal, Lasso also has closed form estimate. Ridge is proportional shrinkage, Lasso is soft-thresholding (shrink to drop), subset selection is hard-thresholding (drop or not).
 

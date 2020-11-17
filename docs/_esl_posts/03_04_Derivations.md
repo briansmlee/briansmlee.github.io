@@ -8,11 +8,11 @@ type: Derivations
 usemathjax: true
 ---
 
-# (3.44) Ridge regression estimate
+### (3.44) Ridge regression estimate
 
 Follows from OLS estimate derivation, because $\frac{\partial}{\partial \beta} \lambda \beta^T \beta = 2 \lambda \beta$.
 
-# $X^T X + \lambda I$ is invertible
+### $X^T X + \lambda I$ is invertible
 
 $X^T X$ is PSD, so its eigenvalues are non-negative. That is, $(u^T X^T) X u = \lVert Xu \lVert^2 \geq 0$ for any $u$, so for any eigenvalue $e$ and eigenvector $v$, $0 \leq v^T (X^T X v) = v^T e v = e \lVert v \lVert^2$, and therefore $e \geq 0$.
 
@@ -20,7 +20,7 @@ Adding $\lambda I$ shifts each eigenvalue of $X^T X$ by $\lambda$: $(X^T X + \la
 
 Because all eigenvalues of $X^T X + \lambda I$ are positive, it is invertible. That is, by contradiction, if we assume $X^T X + \lambda I$ is singular, then $\exists x \neq 0$ s.t. $(X^T X + \lambda I)x = 0$, but then $0$ is an eigenvalue.
 
-# (3.47) Analyze ridge regression estimate using SVD of $X$
+### (3.47) Analyze ridge regression estimate using SVD of $X$
 
 $$ \begin{equation*} \begin{split}
 X\hat{\beta}_{RR} &= X(X^TX + \lambda I)^{-1}X^Ty \\ 
@@ -35,7 +35,7 @@ $D(D^2 + \lambda I)^{-1} D$ is a diagonal matrix with $j$-th diagonal entry as $
 
 Hence, features with smaller singular values $d_j$ are shrinked more.
 
-# $z_1 = Xv_1$ has largest variance among all normalized linear combinations of columns of $X$
+### $z_1 = Xv_1$ has largest variance among all normalized linear combinations of columns of $X$
 
 Let $z = Xa$ be a normalized linear combination of columns of $X$. That is, $\lVert a \rVert^2 = 1$. $v_1$ is such $a$.
 
@@ -49,7 +49,7 @@ What are the weights that maximize $Var(z)$? Since first singular value is the l
 
 TODO: Derive from optimization formulation of PCA. See _Mathematics for Machine Learning_, equation (10.10).
 
-# (3.49) $Var(Xv_1) = d_1^2 / N$
+### (3.49) $Var(Xv_1) = d_1^2 / N$
 
 Note $\overline{Xv_1} = \frac{1}{N} \sum_i^N (Xv_1)_i = \frac{1}{N} [\sum_i^N {x_i}^T ] v_1 = 0$ because features in $X$ were centered. Hence,
 
@@ -65,11 +65,11 @@ Reference:
 - "[Principal Component Analysis from Statistical and Machine Learning Perspectives (Part 1)](https://towardsdatascience.com/principal-component-analysis-ceb42ed04d77)" by Suhyun Kim.
 
 
-# (3.50) Effective degrees of freedom of ridge regression
+### (3.50) Effective degrees of freedom of ridge regression
 
 Follows from (3.47) and cyclic property of the trace.
 
-# Lasso estimate has no closed form expression 
+### Lasso estimate has no closed form expression 
 
 TODO
 
