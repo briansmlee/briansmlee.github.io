@@ -55,3 +55,28 @@ Estimation picture (Figure 3.11). Equi-RSS elliptical contours centered at $\hat
 TODO: Elastic-net penalty
 
 TODO: Bayesian interpretation
+
+### 3.4.4 Least Angle Regression
+
+At each iteration $k$, move coefficients in the active set $A_k$ towards the OLS estimate of the residual $r_k$ onto $X_{A_k}$, until another feature has as much correlation with the residual. 
+
+Then, at each iteration:
+1. OLS direction keeps the correlations tied and decreasing.
+1. $X_{A_k}\hat{\beta}\_k$ makes smallest angle with the features in $X_{A_k}$.
+1. Exact step length can be calculated.
+
+For Lasso path, if a non-zero coefficient reaches zero, drop it from $A_k$.
+
+### Degrees of freedom
+
+How many parameters were used? Define effective degrees of freedom of adaptively fit $\hat{y}$ as df($\hat{y}$) $= \frac{1}{\sigma^2} \sum\_{i=1}^N Cov(\hat{y}\_i, y_i)$.
+
+| Estimation Method | df($\hat{y}$) | Notes |
+| :---: | :---: | :--- |
+| Least Squares | k | - |
+| Ridge | $\sum_i \frac{d_i^2}{d_i^2 + \lambda}$ | - |
+| Subset Selection | > k | No closed form; by simulation. |
+| Least Angle | = k | - |
+| Lasso | ~ k| approximately size of active set. |
+
+
