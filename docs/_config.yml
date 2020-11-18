@@ -2,7 +2,7 @@
 title:               Brian Lee's Blog
 # tagline:             'A Jekyll theme'
 description:         ''
-# url:                 http://lanyon.getpoole.com
+url:                 https://www.briansmlee.com
 # baseurl:             ''
 paginate:            5
 permalink:           pretty
