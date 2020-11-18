@@ -2,8 +2,8 @@
 layout: page
 title: 3.3 Subset Selection - Summary
 permalink: /esl/03_03_Summary/
-chapter: 03_03
-chapter_title: 3.3 Subset Selection
+chapter_title: 3 Linear Methods for Regression
+section_title: 3.3 Subset Selection
 type: Summary
 usemathjax: true
 ---

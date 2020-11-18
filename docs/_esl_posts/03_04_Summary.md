@@ -2,8 +2,8 @@
 layout: page
 title: 3.4 Shrinkage Methods - Summary
 permalink: /esl/03_04_Summary/
-chapter: 03_04
-chapter_title: 3.4 Shrinkage Methods
+chapter_title: 3 Linear Methods for Regression
+section_title: 3.4 Shrinkage Methods
 type: Summary
 usemathjax: true
 ---

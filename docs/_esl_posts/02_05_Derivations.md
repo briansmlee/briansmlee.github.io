@@ -2,8 +2,8 @@
 layout: page
 title: 2.5 Local Methods in High Dimensions - Derivations
 permalink: /esl/02_05_Derivations/
-chapter: 02_05
-chapter_title: 2.5 Local Methods in High Dimensions
+chapter_title: 2 Overview of Supervised Learning
+section_title: 2.5 Local Methods in High Dimensions
 type: Derivations
 usemathjax: true
 ---

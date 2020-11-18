@@ -5,20 +5,27 @@ permalink: /esl/
 ---
 <p>Summary of notes and learnings from <em>Elements of Statistical Learning</em> by Hastie, Tibshirani, and Friedman.</p>
 
-{% assign posts_by_chapter = site.esl_posts | group_by:"chapter" %}
 
-<ul>
+{% assign posts_by_chapter = site.esl_posts | group_by:"chapter_title" %}
 {% for chapter_group in posts_by_chapter %}
-
 	{% assign posts_in_chapter = chapter_group.items %}
+	<h3>Chapter {{ posts_in_chapter[0].chapter_title }}</h3>
 
-	<li>
-	{{ posts_in_chapter[0].chapter_title }} 
-	[{% for post in posts_in_chapter %}
-		<a href="{{ post.url }}">{{ post.type }}</a>
-		{% if forloop.last == false %} | {% endif %}
-	{% endfor %}]
-	</li>
+	<!-- For each chapter, bulleted list of sections, each with 4 doc types -->
+	{% assign posts_by_section = posts_in_chapter | group_by:"section_title" %}
 
+	<ul>
+	{% for section_group in posts_by_section %}
+		{% assign posts_in_section = section_group.items %}
+		<li>
+		{{ posts_in_section[0].section_title }} 
+		[
+			{% for post in posts_in_section %}
+				<a href="{{ post.url }}">{{ post.type }}</a>
+				{% if forloop.last == false %} | {% endif %}
+			{% endfor %}
+		]
+		</li>
+	{% endfor %}
+	</ul>
 {% endfor %}
-</ul>

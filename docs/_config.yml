@@ -29,5 +29,5 @@ highlighter: rouge
 collections:
   esl_posts:
     output: true
-    sort_by: chapter
+    sort_by: section_title
 

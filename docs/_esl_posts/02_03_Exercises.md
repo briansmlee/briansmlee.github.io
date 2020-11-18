@@ -2,8 +2,8 @@
 layout: page
 title: 2.3 Least squares and Nearest Neighbors - Exercises
 permalink: /esl/02_03_Exercises/
-chapter: 02_03
-chapter_title: 2.3 Least squares and Nearest Neighbors
+chapter_title: 2 Overview of Supervised Learning
+section_title: 2.3 Least squares and Nearest Neighbors
 type: Exercises
 usemathjax: true
 ---
