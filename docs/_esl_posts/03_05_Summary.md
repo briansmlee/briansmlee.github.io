@@ -13,7 +13,7 @@ usemathjax: true
 
 Given many highly correlated features, use few linear combinations of them.
 
-3.5.1 Principal Components Regression
+### 3.5.1 Principal Components Regression
 
 Use $M \leq p$ principal components. 
 
@@ -21,6 +21,6 @@ Use $M \leq p$ principal components.
 2. Principal components depend on scale of features.
 3. Similar to ridge: instead of shrinking coefficients with smaller singular values, drop them.
 
-
+### 3.5.2 Partial Least Squares
 
 
