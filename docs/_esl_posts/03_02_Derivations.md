@@ -42,9 +42,7 @@ Chapter 4 from *Econometric Theory and Methods* by Davidson and Mackinnon provid
 
 ### (3.19) Gauss-Markov Theorem
 
-There are numerous proofs of the theorem online.
-
-![Derive (3.19)](/assets/esl/3.19.jpg)
+See [Exercise 3.3 (a)](/esl/03_02_Exercises)
 
 
 
