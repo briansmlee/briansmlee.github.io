@@ -23,7 +23,7 @@ Use $M \leq p$ principal components.
 
 ### 3.5.2 Partial Least Squares
 
-Each derived feature $z$ is a sum of inputs (orthogonalized w.r.t. prev feature), weighted by strength of univariate effect on $y$. At each step:
+Each derived feature $z$ is a sum of inputs (orthogonalized w.r.t. prev feature), weighted by strength of univariate effect on $y$. For each feature:
 1. $z = \sum_i^p proj(y \rightarrow x_i)$
 2. $\hat{y} \mathrel{+}= proj(y \rightarrow z)$
 3. $x_i \mathrel{-}= proj(x_i \rightarrow z)$
