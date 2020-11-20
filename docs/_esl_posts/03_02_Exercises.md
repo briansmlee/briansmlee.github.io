@@ -33,10 +33,17 @@ Var(\widetilde{\theta}) - Var(\hat{\theta}) &= c^T Var(y) c - a^T Var(\hat{\beta
 \end{split} \end{equation*} $$
 
 Reference:
-* [Solution](https://tullo.ch/static/ESL-Solutions.pdf) by Andrew Tulloch.
+* [Solution](https://tullo.ch/static/ESL-Solutions.pdf) by Andrew Tulloch
 
-(b)
+(b) *$\hat{\beta}$ is an unbiased estimate of $\beta$. Suppose $\widetilde{\beta}$ is another unbiased estimate. Show $Var(\widetilde{\beta}) - Var(\hat{\beta})$ is positive semidefinite.*
+
+$Var(\widetilde{\beta}) - Var(\hat{\beta})$ is positive semidefinite iff $\forall b \neq 0, b^T (Var(\widetilde{\beta}) - Var(\hat{\beta})) b \geq 0$. This is equivalent to $Var(b^T \widetilde{\beta}) - Var(b^T \hat{\beta}) \geq 0$.
+
+Later inequality is same as (a) if we can let $b^T \widetilde{\beta} = \widetilde{\theta} = c^T y$.
+1. If $y \neq 0$, there exists a $c$ that can combine $y$ to obtain any $b^T \widetilde{\beta}$. So, the inequality follows from (a).
+2. If $y = 0$, $Var(b^T \hat{\beta}) = 0$, so the inequality is trivially true.
 
 ### 3.4
+
 
 ### 3.11
