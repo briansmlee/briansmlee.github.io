@@ -33,7 +33,7 @@ Var(\widetilde{\theta}) - Var(\hat{\theta}) &= c^T Var(y) c - a^T Var(\hat{\beta
 \end{split} \end{equation*} $$
 
 Reference:
-* [Solution](https://tullo.ch/static/ESL-Solutions.pdf) by Andrew Tulloch
+* Tulloch. [*Elements of Statistical Learning*](https://ajtulloch.github.io/PDFs/ESL-Solutions.pdf).
 
 (b) *$\hat{\beta}$ is an unbiased estimate of $\beta$. Suppose $\widetilde{\beta}$ is another unbiased estimate. Show $Var(\widetilde{\beta}) - Var(\hat{\beta})$ is positive semidefinite.*
 
@@ -56,9 +56,35 @@ Since $R \hat{\beta} = Q^T y$ and $R$ is upper triangular, we can solve for $\ha
 (It is a bit unclear if this exercise is asking for a modification of the step 2 in the Gram-Schmidt procedure such that the $\hat{\beta}$ can be obtained *without* the final back-substitution. However, since the computational complexity of Gram-Schmidt procedure $O(n^3)$ dominates that of back-substitution $O(n^2)$, the additional back-substitution is probably ok.)
 
 Reference:
-* Gilbert Strang. *Introduction to Linear Algebra*. See chapters 2.6 and 11.1 for computational complexity of back-substitution (LU) and QR.
+* Strang. *Introduction to Linear Algebra*. See chapters 2.6 and 11.1 for computational complexity of back-substitution (LU) and QR.
 
 ### 3.11
 
 *Suppose a multiple-output linear regression problem where the errors are correlated between outputs. Show that solution to the weighted RSS criterion (3.40) is given by $(X^TX)^{-1}X^TY$, ignoring the correlations.*
 
+Let $A = Y - XB$. Then, $\sum_{i=1}^N a_i^T \Sigma^{-1} a_i = tr[\Sigma^{-1} A^TA]$, where $a_i$ is the i-th row of $A$ as a column vector. This is because:
+
+$$ \begin{equation*} \begin{split}
+tr[\Sigma^{-1} A^TA] 
+&= \sum_{j=1}^K \sum_{k=1}^K \Sigma^{-1}_{j,k} (A^TA)_{j,k}\\
+&= \sum_{j=1}^K \sum_{k=1}^K \Sigma^{-1}_{j,k} \sum_{i=1}^N A^T_{j,i} A_{i,k}\\
+&= \sum_{i=1}^N \sum_{j=1}^K \sum_{k=1}^K A_{i,j} \Sigma^{-1}_{j,k}  A_{i,k}\\
+&= \sum_{i=1}^N a_i^T \Sigma^{-1} a_i\\
+\end{split} \end{equation*} $$
+
+So, RSS (3.40) is equivalent to $tr[\Sigma^{-1} (Y - XB)^T (Y - XB)]$. We find its derivative w.r.t. $B$:
+
+$$ \begin{align*}
+\frac{\partial}{\partial B} tr[\Sigma^{-1} (Y - XB)^T (Y - XB)]
+&= \frac{\partial}{\partial B} - tr[\Sigma^{-1} B^TX^TY] - tr[\Sigma^{-1} Y^TXB] + tr[\Sigma^{-1}B^TX^TXB] \\
+&= \frac{\partial}{\partial B} - 2 tr[B^TX^TY \Sigma^{-1}] - tr[B^TX^TXB \Sigma^{-1}]\\
+&= -2X^TY\Sigma^{-1} + (X^TXB\Sigma^{-1} + (X^TX)^T B \Sigma^{-T})\\
+&= -2X^TY\Sigma^{-1} + 2X^TXB\Sigma^{-1}\\
+\end{align*} $$
+
+where the trace derivatives are from Matrix Cookbook (103) and (117). By setting the derivative to zeros, we obtain $X^TXB\Sigma^{-1} = X^TY\Sigma^{-1}$, which yields (3.39) because $\Sigma^{-1}$ is invertible.
+
+Reference:
+* Weatherwax and Epstein. [*A Solution Manual and Notes for:
+The Elements of Statistical Learning*](https://waxworksmath.com/Authors/G_M/Hastie/WriteUp/Weatherwax_Epstein_Hastie_Solution_Manual.pdf). See the solution for an easier explanation of the derivative.
+* Petersen and Pedersen. [*Matrix Cookbook*](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf).
