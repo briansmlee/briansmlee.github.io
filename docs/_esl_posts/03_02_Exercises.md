@@ -28,7 +28,7 @@ Var(\widetilde{\theta}) - Var(\hat{\theta}) &= c^T Var(y) c - a^T Var(\hat{\beta
 &= \sigma^2 c^T (I - X(X^TX)^{-1}X^T)c \\
 &= \sigma^2 c^T (I - H)c && \text{H is projection matrix (3.7)} \\
 &= \sigma^2 c^T (I - H)^T(I - H)c && (I - H)^2 = (I - H) = (I - H)^T \\
-&= \sigma^2 \lVert (I - H) c \rVert^2 \\
+&= \sigma^2 \lVert (I - H) c \rVert^2 && \text{i.e. $I - H$ is PSD}\\
 &\geq 0
 \end{split} \end{equation*} $$
 
@@ -45,5 +45,20 @@ Later inequality is same as (a) if we can let $b^T \widetilde{\beta} = \widetild
 
 ### 3.4
 
+*Obtain OLS coefficients from a single pass of Gram-Schmidt procedure. Express in terms of QR decomposition of X*
+
+$X$ is decomposed into $Q$ and $R$ from a single run of Gram-Schmidt procedure; $X = (ZD^{-1})(D\Gamma) = QR$ (3.31). 
+
+By QR decomposition, $\hat{\beta} = (R^T Q^TQR)^{-1}R^TQ^Ty = R^{-1}R^{-T}R^TQ^Ty = R^{-1}Q^Ty$ (3.32). 
+
+Since $R \hat{\beta} = Q^T y$ and $R$ is upper triangular, we can solve for $\hat{\beta}$ by back-substitution, solving from p-th coefficient to first.
+
+(It is a bit unclear if this exercise is asking for a modification of the step 2 in the Gram-Schmidt procedure such that the $\hat{\beta}$ can be obtained *without* the final back-substitution. However, since the computational complexity of Gram-Schmidt procedure $O(n^3)$ dominates that of back-substitution $O(n^2)$, the additional back-substitution is probably ok.)
+
+Reference:
+* Gilbert Strang. *Introduction to Linear Algebra*. See chapters 2.6 and 11.1 for computational complexity of back-substitution (LU) and QR.
 
 ### 3.11
+
+*Suppose a multiple-output linear regression problem where the errors are correlated between outputs. Show that solution to the weighted RSS criterion (3.40) is given by $(X^TX)^{-1}X^TY$, ignoring the correlations.*
+
