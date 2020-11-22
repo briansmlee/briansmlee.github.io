@@ -60,9 +60,15 @@ See [this StackExchange answer](https://math.stackexchange.com/a/2342977/455856)
 
 TODO: Is it possible to derive without the assumption above?
 
-### (3.10) Under (3.9), OLS estimate is normal
+### (3.10) Under (3.9), OLS estimate has normal distribution
 
-![Derive (3.10)](/assets/esl/3.10.jpg)
+Let $e$ be the N x 1 vector of errors $\varepsilon$ from (3.9). Assuming errors are i.i.d., $e \sim N(0, \sigma^2 I)$.
+
+Note $\hat{\beta} = (X^TX)^{-1}X^Ty = (X^TX)^{-1}X^T(X\beta + e) = \beta + (X^TX)^{-1}X^Te$.
+
+If $x \sim N(\mu, \Sigma)$ then $\beta + a^Tx \sim N(\beta + a^T\mu, a^T\Sigma a)$. So, covariance matrix of $\beta + (X^TX)^{-1}X^Te$ is $(X^TX)^{-1}X^T \sigma^2 I X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1}$, which confirms our derivation from (3.8).
+
+So, $\beta + (X^TX)^{-1}X^Te \sim N(\beta, \sigma^2 (X^TX)^{-1})$.
 
 ### (3.11) $\hat{\sigma}^2$ has chi-squared distribution with $N-p-1$
 
