@@ -13,9 +13,9 @@ usemathjax: true
 
 ### (3.2) RSS criterion is "statistically reasonable" if $y_i$'s are conditionally independent given X
 
-### (3.4) Differentiate RSS w.r.t. $\beta$
+### (3.4) Differentiate RSS$(\beta)$
 
-Differentiate RSS($\beta$) $ = y^T y - 2 \beta^T X^T y + \beta^T X^TX \beta$. Note $\frac{\partial}{\partial \beta} \beta^T X^T y = X^Ty$. Show $ \frac{\partial}{\partial \beta} \beta^T X^T X \beta = 2 X^T X\beta$. 
+RSS$(\beta)$ $ = y^T y - 2 \beta^T X^T y + \beta^T X^TX \beta$. Note $\frac{\partial}{\partial \beta} \beta^T X^T y = X^Ty$. Show $ \frac{\partial}{\partial \beta} \beta^T X^T X \beta = 2 X^T X\beta$. 
 
 Let $ X^T X = A$. Then $\beta^T A \beta = \sum_i \beta_i (A\beta)\_{i} = \sum_i \beta_i \sum_j A_{i,j} \beta_j$. Reorder to $\sum_i \sum_j A_{i,j} \beta_i \beta_j$. Then:
 
@@ -30,20 +30,33 @@ $$ \begin{align*}
 
 Therefore, $\frac{\partial}{\partial \beta} \beta^T A \beta = (A^T + A)\beta$, equivalent to $2 X^T X\beta$ since $X^T X$ is symmetric.
 
-From the two partial derivatives, we obtain $ \frac{\partial}{\partial \beta} RSS = - 2 X^T (y - X \beta)$, which we set to zeros for the normal equation.
+From the two derivatives, we obtain $ \frac{\partial}{\partial \beta} RSS = - 2 X^T (y - X \beta)$, which we set to zeros for the normal equation.
 
 Reference:
 * Barnes. [*Matrix Calculus*](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf). Section 5.
 
-
 ### (3.8) Covariance matrix of OLS estimate
-![Derive (3.8)](/assets/esl/3.8.jpg)
 
-Reference: [EdX ColumbiaX Machine Learning](https://www.edx.org/course/machine-learning), Lecture 3.
+Note $Var(\hat{\beta}) 
+= E[(\hat{\beta} - E[\hat{\beta}])(\hat{\beta} - E[\hat{\beta}])^T]
+= E[\hat{\beta}\hat{\beta}^T] - E[\hat{\beta}]E[\hat{\beta}]^T$. 
+Equivalently, $E[yy^T] = Var(y) + E[y]E[y]^T$.
+
+$$ \begin{align*}
+Var(\hat{\beta}) &= E[\hat{\beta}\hat{\beta}^T] - E[\hat{\beta}]E[\hat{\beta}]^T\\
+&= E[(X^TX)^{-1}X^Tyy^TX(X^TX)^{-T}] - E[(X^TX)^{-1}X^Ty]E[(X^TX)^{-1}X^Ty]^T\\
+&= (X^TX)^{-1}X^TE[yy^T]X(X^TX)^{-1} - (X^TX)^{-1}X^TE[y]((X^TX)^{-1}X^TE[y])^T\\
+&= (X^TX)^{-1}X^T(\sigma^2I + E[y]E[y]^T)X(X^TX)^{-1} - (X^TX)^{-1}X^TE[y]E[y]^TX(X^TX)^{-1}\\
+&= (\sigma^2(X^TX)^{-1} + (X^TX)^{-1}X^TE[y]E[y]^TX(X^TX)^{-1}) - (X^TX)^{-1}X^TE[y]E[y]^TX(X^TX)^{-1}\\
+&= \sigma^2(X^TX)^{-1}
+\end{align*} $$
+
+Reference: 
+* Paisley. [*ColumbiaX - CSMM.102x: Machine Learning*](https://www.edx.org/course/machine-learning). Lecture 3.
 
 ### (3.8) Estimate $\hat{\sigma}^2$ of $y_i$'s variance $\sigma^2$ is unbiased
 
-See [this Math StackExchange answer](https://math.stackexchange.com/a/2342977/455856). Note that this answer assumes that the variance $\sigma^2$ of $y_i$ comes from $\varepsilon \sim N(0, \sigma^2)$.
+See [this StackExchange answer](https://math.stackexchange.com/a/2342977/455856). Note that this answer assumes that the variance $\sigma^2$ of $y_i$ comes from $\varepsilon \sim N(0, \sigma^2)$.
 
 TODO: Is it possible to derive without the assumption above?
 
@@ -53,7 +66,7 @@ TODO: Is it possible to derive without the assumption above?
 
 ### (3.11) $\hat{\sigma}^2$ has chi-squared distribution with $N-p-1$
 
-See [this Math StackExchange answer](https://stats.stackexchange.com/a/20230/261782). Below slightly extends the answer by using (imo) a bit easier linear algebra.
+See [this StackExchange answer](https://stats.stackexchange.com/a/20230/261782). Below slightly extends the answer by using (imo) a bit easier linear algebra.
 
 ![Derive (3.11)](/assets/esl/3.11.jpg)
 
