@@ -70,7 +70,7 @@ If $x \sim N(\mu, \Sigma)$ then $\beta + a^Tx \sim N(\beta + a^T\mu, a^T\Sigma a
 
 Hence, $\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})$.
 
-### (3.11) $\hat{\sigma}^2$ has chi-squared distribution with $N-p-1$
+### (3.11) $(N-p-1)\hat{\sigma}^2$ has chi-squared distribution
 
 See [this StackExchange answer](https://stats.stackexchange.com/a/20230/261782). Below slightly modifies the answer by using (imo) a bit easier linear algebra.
 
@@ -81,7 +81,7 @@ $y - \hat{y} = (X\beta + \varepsilon) - X(X^TX)^{-1}X^T(X\beta + \varepsilon) = 
 Let $A = I - H$, which satisfies:
 1. $A^T = A$. Symmetric matrix has $N$ real eigenvalues.
 2. $A^2 = A$. The $N$ eigenvalues are $0$ or $1$ since $\lambda v = Av = A^2v = \lambda^2 v$.
-3. $tr(I - H) = N - tr(X(X^TX)^{-1}X^T) = N - tr(X^TX(X^TX)^{-1}) = N - (p + 1)$. Since the trace equals sum of eigenvalues, $N - p - 1$ eigenvalues are 1.
+3. $tr(I - H) = N - tr(X(X^TX)^{-1}X^T) = N - tr(X^TX(X^TX)^{-1}) = N - (p + 1)$. Since the trace equals the sum of eigenvalues, $N - p - 1$ eigenvalues are 1.
 
 So, we can eigen-decompose $A = Q \Lambda Q^{-1}$ where $\Lambda = diag(\underbrace{1,...,1}\_{N-p-1}, \underbrace{0,...,0}\_{p+1})$.
 
@@ -90,23 +90,37 @@ $A\varepsilon \sim N(0, \sigma^2A)$ because $A\sigma^2 I A^T = \sigma^2A$.\\
 Moreover, $Q^TA\varepsilon \sim N(0, \sigma^2 \Lambda)$ because $Q^TAQ = Q^T(Q \Lambda Q^{-1})Q = \Lambda$.\\
 That is, among N independent random variables in $Q^TA\varepsilon$, first $N - p - 1$ have variance $\sigma^2$ and others are fixed at 0 (both mean and variance are 0).
 
-Since $(Q^TA\varepsilon)\_i / \sigma^2$ is standard normal,
-$\chi_{N-p-1}^2 = \sum_{i=1}^{N-p-1} (Q^TA\varepsilon)\_i^2 / \sigma^2$, but we can extend the sum to be upto $N$ since remaining $p+1$ entries are fixed at 0.
+Then, $(Q^TA\varepsilon)\_i / \sigma^2$ is standard normal for all $i$ upto $N-p-1$. So, $\chi_{N-p-1}^2 = \sum_{i=1}^{N-p-1} (Q^TA\varepsilon)\_i^2 / \sigma^2$, but we can extend the sum upto $N$ since remaining $p+1$ entries are fixed at 0.
 
 Therefore, $\chi_{N-p-1}^2 = (Q^TA\varepsilon)^T (Q^TA\varepsilon) / \sigma^2 = \varepsilon^TA^TA\varepsilon / \sigma^2 
 = \lVert (I - H)\varepsilon \rVert^2 / \sigma^2
 = \lVert y - \hat{y} \rVert^2 / \sigma^2
 = (N - p - 1)\hat{\sigma}^2 / \sigma^2$.
 
+References:
+* [StackExchange answer](https://stats.stackexchange.com/a/20230/261782) by ocram.
+* Strang. *Introduction to Linear Algebra*. Section 6.4.
+
 ### (3.11) $\hat{\beta}$ and $\hat{\sigma}^2$ are independent
 
 ### (3.12) Hypothesis testing of one parameter coefficient
 
-The "Z-score" in (3.12) is a [T-statistic](https://en.wikipedia.org/wiki/T-statistic); we are estimating from a sample because we don't know the population mean nor standard deviation.
+The Z-score $z_j = \frac{\hat{\beta}\_j}{\hat{\sigma} \sqrt{v_j}}$ in (3.12) is a [t-statistic](https://en.wikipedia.org/wiki/T-statistic); we are estimating from a sample.
 
-TODO: Derive that T-statistic takes T-distribution.
+*1. Show that $z_j \sim t_{N-p-1}$ under $\beta_j = 0$.*
 
-Chapter 4 from *Econometric Theory and Methods* by Davidson and Mackinnon provides a self-contained explanation of hypothesis testing in linear regression models. Specifically, see section 4.4.
+*2. Show that if $\hat{\sigma}$ is replaced by a known $\sigma$, then $z_j \sim N$.*
+
+References:
+* Davidson and Mackinnon. *Econometric Theory and Methods*. Chapter 4 provides a self-contained explanation of hypothesis testing in linear regression models. Specifically, see Section 4.4.
+
+### (3.13) Hypothesis testing of a group of parameters
+
+*Show that F-statistic in (3.13) has $F_{p_1-p_0, N-p_1-1}$ distribution.*
+
+### (3.13) F-statistic for one coefficient $b_j$ is equivalent to Z-score $z_j$
+
+See [Exercise 3.1](/esl/03_02_Exercises)
 
 ### (3.19) Gauss-Markov Theorem
 
