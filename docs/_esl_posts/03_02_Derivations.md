@@ -54,13 +54,13 @@ Var(\hat{\beta}) &= E[\hat{\beta}\hat{\beta}^T] - E[\hat{\beta}]E[\hat{\beta}]^T
 Reference: 
 * Paisley. [*ColumbiaX - CSMM.102x: Machine Learning*](https://www.edx.org/course/machine-learning). Lecture 3.
 
-### (3.8) Estimate $\hat{\sigma}^2$ of $y_i$'s variance $\sigma^2$ is unbiased
+### (3.8) Estimate $\hat{\sigma}^2$ of $y_i$'s variance using denominator $N-p-1$ is unbiased
 
 See [this StackExchange answer](https://math.stackexchange.com/a/2342977/455856). Note that this answer assumes that the variance $\sigma^2$ of $y_i$ comes from $\varepsilon \sim N(0, \sigma^2)$.
 
 TODO: Is it possible to derive without the assumption above?
 
-### (3.10) Under (3.9), OLS estimate has normal distribution
+### (3.10) OLS estimate has normal distribution under (3.9)
 
 Let $e$ be the N x 1 vector of errors $\varepsilon$ from (3.9). Assuming errors are i.i.d., $e \sim N(0, \sigma^2 I)$.
 
@@ -68,19 +68,41 @@ Note $\hat{\beta} = (X^TX)^{-1}X^Ty = (X^TX)^{-1}X^T(X\beta + e) = \beta + (X^TX
 
 If $x \sim N(\mu, \Sigma)$ then $\beta + a^Tx \sim N(\beta + a^T\mu, a^T\Sigma a)$. So, covariance matrix of $\beta + (X^TX)^{-1}X^Te$ is $(X^TX)^{-1}X^T \sigma^2 I X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1}$, which confirms our derivation from (3.8).
 
-So, $\beta + (X^TX)^{-1}X^Te \sim N(\beta, \sigma^2 (X^TX)^{-1})$.
+Hence, $\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})$.
 
 ### (3.11) $\hat{\sigma}^2$ has chi-squared distribution with $N-p-1$
 
-See [this StackExchange answer](https://stats.stackexchange.com/a/20230/261782). Below slightly extends the answer by using (imo) a bit easier linear algebra.
+See [this StackExchange answer](https://stats.stackexchange.com/a/20230/261782). Below slightly modifies the answer by using (imo) a bit easier linear algebra.
 
-![Derive (3.11)](/assets/esl/3.11.jpg)
+From (3.8), $(N - p - 1)\hat{\sigma}^2 = \sum_i^N (y_i - \hat{y_i})^2 = \lVert y - \hat{y} \rVert^2$.
+
+$y - \hat{y} = (X\beta + \varepsilon) - X(X^TX)^{-1}X^T(X\beta + \varepsilon) = \varepsilon - X(X^TX)^{-1}X^T\varepsilon = (I - H)\varepsilon$, where H is projection/hat matrix.
+
+Let $A = I - H$, which satisfies:
+1. $A^T = A$. Symmetric matrix has $N$ real eigenvalues.
+2. $A^2 = A$. The $N$ eigenvalues are $0$ or $1$ since $\lambda v = Av = A^2v = \lambda^2 v$.
+3. $tr(I - H) = N - tr(X(X^TX)^{-1}X^T) = N - tr(X^TX(X^TX)^{-1}) = N - (p + 1)$. Since the trace equals sum of eigenvalues, $N - p - 1$ eigenvalues are 1.
+
+So, we can eigen-decompose $A = Q \Lambda Q^{-1}$ where $\Lambda = diag(\underbrace{1,...,1}\_{N-p-1}, \underbrace{0,...,0}\_{p+1})$.
+
+From $\varepsilon \sim N(0, \sigma^2 I)$ we obtain 
+$A\varepsilon \sim N(0, \sigma^2A)$ because $A\sigma^2 I A^T = \sigma^2A$.\\
+Moreover, $Q^TA\varepsilon \sim N(0, \sigma^2 \Lambda)$ because $Q^TAQ = Q^T(Q \Lambda Q^{-1})Q = \Lambda$.\\
+That is, among N independent random variables in $Q^TA\varepsilon$, first $N - p - 1$ have variance $\sigma^2$ and others are fixed at 0 (both mean and variance are 0).
+
+Since $(Q^TA\varepsilon)\_i / \sigma^2$ is standard normal,
+$\chi_{N-p-1}^2 = \sum_{i=1}^{N-p-1} (Q^TA\varepsilon)\_i^2 / \sigma^2$, but we can extend the sum to be upto $N$ since remaining $p+1$ entries are fixed at 0.
+
+Therefore, $\chi_{N-p-1}^2 = (Q^TA\varepsilon)^T (Q^TA\varepsilon) / \sigma^2 = \varepsilon^TA^TA\varepsilon / \sigma^2 
+= \lVert (I - H)\varepsilon \rVert^2 / \sigma^2
+= \lVert y - \hat{y} \rVert^2 / \sigma^2
+= (N - p - 1)\hat{\sigma}^2 / \sigma^2$.
 
 ### (3.11) $\hat{\beta}$ and $\hat{\sigma}^2$ are independent
 
 ### (3.12) Hypothesis testing of one parameter coefficient
 
-The "Z-score" in (3.12) is a [T-statistic](https://en.wikipedia.org/wiki/T-statistic), because we don't know the population mean nor standard deviation; we are estimating from a sample.
+The "Z-score" in (3.12) is a [T-statistic](https://en.wikipedia.org/wiki/T-statistic); we are estimating from a sample because we don't know the population mean nor standard deviation.
 
 TODO: Derive that T-statistic takes T-distribution.
 
@@ -96,7 +118,7 @@ See [Exercise 3.3 (a)](/esl/03_02_Exercises)
 
 See [Exercise 3.11](/esl/03_02_Exercises)
 
-### If the $\Sigma_i$ vary among observations, errors no longer decouple
+### (3.40) If the $\Sigma_i$ vary among observations, errors no longer decouple
 
 
 
