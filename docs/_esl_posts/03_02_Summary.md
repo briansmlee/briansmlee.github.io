@@ -50,11 +50,11 @@ Then, $(N - p - 1) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{N - p - 1}$.
 
 ### Hypothesis testing and confidence intervals with OLS estimate
 
-### Gauss-Markov Theorem (3.2.2)
+### 3.2.2 Gauss-Markov Theorem
 
 Given the assumptions 1 to 3 from above, the OLS estimate has the smallest variance (as well as the Mean Squared Error and Expected Prediction Error) among all linear unbiased estimates.
 
-### From univariate to multiple regression (3.2.3)
+### 3.2.3 From univariate to multiple regression
 
 If input features are orthogonal, each multiple linear regression OLS estimate $\hat{\beta}_i$ is equal to the univariate estimate of regressing $y$ on $x_i$. 
 
@@ -64,7 +64,7 @@ However, input features are usually not orthogonal, so we orthogonalize them by 
 
 In matrix form, we obtain the **QR decomposition**, $ X = Z D^{-1} D \Gamma = QR$, where $Q$ is a N x (p+1) orthonormal matrix and $R$ is an upper triangular (invertible) matrix. Then, we obtain the entire OLS estimate $\hat{\beta} = R^{-1}Q^T y$ and $\hat{y} = QQ^T y$.
 
-### Multiple outputs (3.2.4)
+### 3.2.4 Multiple outputs
 
 If errors are same across across each output's observations and are uncorrelated across the multiple outputs, multiple outputs do not affect each other's OLS estimates.
 
