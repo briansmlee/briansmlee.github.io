@@ -13,6 +13,15 @@ usemathjax: true
 
 ### 3.1
 
+*F statistic for a single coefficient is equivalent to square of the Z-score.*
+
+See Section 4.3 from Davidson and Mackinnon. Square of a R.V. that is distributed as $t_{N-p-1}$ is distributed as $F_{1, N-p-1}$:
+
+F distribution is a ratio of two independent RVs with chi-squared distributions, $\frac{a_1 / n_1}{a_2 / n_2}$, where $a_1 \sim \chi_{n_1}^2$ and $a_2 \sim ~ \chi_{n_2}^2$.\\
+t-distribution is a ratio of standard normal and chi-squared RVs; $t = \frac{b}{(a / n)^{1/2}}$, where $b \sim N(0,1)$ and $a \sim \chi^2_{n}$.
+
+Then, $t^2 = \frac{b^2}{a / n} = F_{1, n}$ because $b^2 \sim \chi^2_{1}$.
+
 ### 3.2
 
 ### 3.3

@@ -87,38 +87,50 @@ So, we can eigen-decompose $A = Q \Lambda Q^{-1}$ where $\Lambda = diag(\underbr
 
 From $\varepsilon \sim N(0, \sigma^2 I)$ we obtain 
 $A\varepsilon \sim N(0, \sigma^2A)$ because $A\sigma^2 I A^T = \sigma^2A$.\\
-Moreover, $Q^TA\varepsilon \sim N(0, \sigma^2 \Lambda)$ because $Q^TAQ = Q^T(Q \Lambda Q^{-1})Q = \Lambda$.\\
-That is, among N independent random variables in $Q^TA\varepsilon$, first $N - p - 1$ have variance $\sigma^2$ and others are fixed at 0 (both mean and variance are 0).
+Moreover, $Q^TA\varepsilon \sim N(0, \sigma^2 \Lambda)$ because $Q^TAQ = Q^T(Q \Lambda Q^{-1})Q = \Lambda$.
 
-Then, $(Q^TA\varepsilon)\_i / \sigma^2$ is standard normal for all $i$ upto $N-p-1$. So, $\chi_{N-p-1}^2 = \sum_{i=1}^{N-p-1} (Q^TA\varepsilon)\_i^2 / \sigma^2$, but we can extend the sum upto $N$ since remaining $p+1$ entries are fixed at 0.
+That is, among N independent random variables in $Q^TA\varepsilon$, first $N - p - 1$ have variance $\sigma^2$ and others are fixed at 0 (both mean and variance are 0). Then, $(Q^TA\varepsilon)\_i / \sigma^2$ are independent standard normals for all $i$ upto $N-p-1$. So, $\chi_{N-p-1}^2 = \sum_{i=1}^{N-p-1} (Q^TA\varepsilon)\_i^2 / \sigma^2$, but we can extend the sum upto $N$ since remaining $p+1$ entries are fixed at 0.
 
-Therefore, $\chi_{N-p-1}^2 = (Q^TA\varepsilon)^T (Q^TA\varepsilon) / \sigma^2 = \varepsilon^TA^TA\varepsilon / \sigma^2 
-= \lVert (I - H)\varepsilon \rVert^2 / \sigma^2
-= \lVert y - \hat{y} \rVert^2 / \sigma^2
-= (N - p - 1)\hat{\sigma}^2 / \sigma^2$.
+Therefore, $\sigma^2 \chi_{N-p-1}^2 = (Q^TA\varepsilon)^T (Q^TA\varepsilon) 
+= \varepsilon^TA^TA\varepsilon 
+= \lVert (I - H)\varepsilon \rVert^2
+= \lVert y - \hat{y} \rVert^2
+= (N - p - 1)\hat{\sigma}^2$.
+
+Alternatively, we can use the following theorems:
+* If A is a projection matrix with rank $r$ and $z \sim N(0, I)$, then the quadratic form $z^TAz$ is distributed as $\chi_{r}^2$. \\
+See Davidson and Mackinnon, Section 4.3.
+* For a projection matrix, rank is equal to trace.
 
 References:
 * [StackExchange answer](https://stats.stackexchange.com/a/20230/261782) by ocram.
 * Strang. *Introduction to Linear Algebra*. Section 6.4.
+* Davidson and Mackinnon. *Econometric Theory and Methods*. Section 4.3.
 
 ### (3.11) $\hat{\beta}$ and $\hat{\sigma}^2$ are independent
 
 ### (3.12) Hypothesis testing of one parameter coefficient
 
-The Z-score $z_j = \frac{\hat{\beta}\_j}{\hat{\sigma} \sqrt{v_j}}$ in (3.12) is a [t-statistic](https://en.wikipedia.org/wiki/T-statistic); we are estimating from a sample.
+$z_j \sim t_{N-p-1}$ if $z_j$ can be expressed as $\frac{a}{\sqrt{b / (N-p-1)}}$ where a and b are independent, $a \sim N(0,1)$, and $b \sim \chi_{N-p-1}^2$.
 
-*1. Show that $z_j \sim t_{N-p-1}$ under $\beta_j = 0$.*
+Note $\frac{\hat{\beta_j}}{\sigma \sqrt{v_j}} \sim N(0,1)$ because $\hat{\beta_j} \sim N(0, \sigma^2 v_j)$ from (3.10). Also, $(N-p-1)\hat{\sigma^2} / \sigma^2 \sim \chi_{N-p-1}^2$ from (3.11).
 
-*2. Show that if $\hat{\sigma}$ is replaced by a known $\sigma$, then $z_j \sim N$.*
+Therefore, $z_j = \frac{\hat{\beta_j}}{\hat{\sigma}\sqrt{v_j}} = \frac{\hat{\beta_j} / \sigma \sqrt{v_j}}{\hat{\sigma} / \sigma} \sim t_{N-p-1}$. 
+
+Alternatively, Section 4.4 in Davidson and Mackinnon derives:
+
+1. The $z_j$ in (3.12) by using [FWL theorem](https://en.wikipedia.org/wiki/Frisch%E2%80%93Waugh%E2%80%93Lovell_theorem) to extract the estimate and variance of a subset of coefficients in $\hat{\beta}$.
+1. If we know the true $\sigma$, then $z_j \sim N(0,1)$ under $\beta_j = 0$, 
+1. If we estimate $\sigma$ using $\hat{\sigma}$, then $z_j \sim t_{N-p-1}$ under $\beta_j = 0$.
 
 References:
-* Davidson and Mackinnon. *Econometric Theory and Methods*. Chapter 4 provides a self-contained explanation of hypothesis testing in linear regression models. Specifically, see Section 4.4.
+* Davidson and Mackinnon. *Econometric Theory and Methods*.
 
 ### (3.13) Hypothesis testing of a group of parameters
 
-*Show that F-statistic in (3.13) has $F_{p_1-p_0, N-p_1-1}$ distribution.*
+Also see Section 4.4 in Davidson and Mackinnon.
 
-### (3.13) F-statistic for one coefficient $b_j$ is equivalent to Z-score $z_j$
+### (3.13) F statistic for a single coefficient is equivalent to square of the Z-score
 
 See [Exercise 3.1](/esl/03_02_Exercises)
 
