@@ -30,9 +30,9 @@ Hence, $\arg\min_{q_2} RSS_2 = \arg\max_{q_2} y^T q_2 {q_2}^T y = \arg\max_{q_2}
 Moreover, $y = r_1 + \hat{y_1}$ and $q_2 = x_2 - Q_1{Q_1}^T x_2$ because $q_2$ is the residual after projecting $x_2$ onto $C(X_1)$. So:
 
 $$ \begin{align*}
-y^T q_2 &= (r + Q_1{Q_1}^Ty)^T (x_2 - Q_1{Q_1}^Tx_2)\\
-&= r^Tx_2 - r^T Q_1{Q_1}^Tx_2 + y^TQ_1{Q_1}^T x_2 - y^TQ_1{Q_1}^T Q_1{Q_1}^Tx_2\\
-&= r^T (I - Q_1{Q_1}^T) x_2\\
+y^T q_2 &= (r_1 + Q_1{Q_1}^Ty)^T (x_2 - Q_1{Q_1}^Tx_2)\\
+&= {r_1}^Tx_2 - {r_1}^T Q_1{Q_1}^Tx_2 + y^TQ_1{Q_1}^T x_2 - y^TQ_1{Q_1}^T Q_1{Q_1}^Tx_2\\
+&= {r_1}^T (I - Q_1{Q_1}^T) x_2\\
 \end{align*} $$
 
 Hence, we can pre-compute the fixed $r^T (I - Q_1{Q_1}^T)$ and select the $x_2$ that maximizes the absolute dot product.
