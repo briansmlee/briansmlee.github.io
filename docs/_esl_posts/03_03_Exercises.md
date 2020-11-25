@@ -20,7 +20,6 @@ RSS_2 &= \lVert y - \hat{y_2} \rVert^2\\
 &= \lVert y - Q_2 {Q_2}^T y \rVert^2 && \text{from (3.33)}\\
 &= y^Ty - 2 y^T Q_2 {Q_2}^T y + y^T Q_2 {Q_2}^T Q_2 {Q_2}^T y\\
 &= y^Ty - y^T Q_2 Q_2^T y && \text{(*)}\\
-&= y^Ty - y^T Q_2 {Q_2}^T y\\
 &= y^Ty - y^T (Q_1 Q_1^T + q_2 {q_2}^T) y && UV^T = u_1{v_1}^T + u_2{v_2}^T + ...\\
 &= RSS_1 - y^T q_2 {q_2}^T y && \text{from (*)}\\
 \end{align*} $$
