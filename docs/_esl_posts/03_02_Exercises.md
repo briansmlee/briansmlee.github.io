@@ -95,6 +95,6 @@ $$ \begin{align*}
 where the trace derivatives are from Matrix Cookbook (103) and (117). By setting the derivative to zeros, we obtain $X^TXB\Sigma^{-1} = X^TY\Sigma^{-1}$, which yields (3.39) because $\Sigma^{-1}$ is invertible.
 
 Reference:
-* Weatherwax and Epstein. [*A Solution Manual and Notes for:
-The Elements of Statistical Learning*](https://waxworksmath.com/Authors/G_M/Hastie/WriteUp/Weatherwax_Epstein_Hastie_Solution_Manual.pdf). See the solution for an easier explanation of the derivative.
+* Weatherwax and Epstein. *A Solution Manual and Notes for:
+The Elements of Statistical Learning*. See the solution for an easier explanation of the derivative.
 * Petersen and Pedersen. [*Matrix Cookbook*](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf).

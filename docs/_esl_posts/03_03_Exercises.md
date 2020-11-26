@@ -37,3 +37,17 @@ y^T q_2 &= (r_1 + Q_1{Q_1}^Ty)^T (x_2 - Q_1{Q_1}^Tx_2)\\
 Hence, we can pre-compute the fixed $r^T (I - Q_1{Q_1}^T)$ and select the $x_2$ that maximizes the absolute dot product.
 
 ### 3.10
+
+*Show that dropping the feature with the smallest absolute Z-score increases RSS the least.*
+
+The feature that increases the RSS the least when dropped has the smallest F statistic:
+
+$$ F = \frac{RSS_{dropped} - RSS}{RSS / (N - p - 1)} $$
+
+From Exercise 3.1, this F statistic is equal to the square of the corresponding Z-score.
+
+Reference:
+
+* Weatherwax and Epstein. *A Solution Manual and Notes for:
+The Elements of Statistical Learning*.
+

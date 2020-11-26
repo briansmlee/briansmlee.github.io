@@ -21,22 +21,22 @@ By retaining a subset of features, we can improve:
 
 For each subset size $k$ from $0$ to $p$, finds subset that gives smallest RSS. 
 
-1. Best subsets are not neccesarily nested.
+1. Best subsets are not necessarily nested.
 2. Produce sequence of models increasing in complexity: RSS of the best subset decreases as $k$ increases, so cannot use RSS to select $k$.
 3. Computationally infeasible if $p > 40$.
 
 ### 3.3.2 Forward and backward stepwise selection
 
-Forward: Begin with intercept. Sequentially add a feature that decreases RSS the most.
+Sequentially add or remove a feature that minimizes the subsequent RSS to the active set.
 
-Greedy. Higher RSS than best-subest selection, but: 
+1\. Forward: Begin with intercept. Add the feature that maximizes $\lvert q^Ty \rvert$ ([Exercise 3.9](/esl/03_03_Exercises)).
+
+Greedy. Higher RSS than best-subset selection, but: 
 1. Computationally feasible
 2. Has lower variance (with higher bias) because more constrained search TODO: formalize
 
-Backward: Sequentially removes feature with smallest Z-score.
+2\. Backward: Removes feature with smallest Z-score.
 
-Unlike Forward, Backward cannot be used if $ N <= p $. TODO: why? Z-score calculation?
+Unlike Forward, Backward cannot be used if $ N <= p $ because $X^TX$ in the Z-score is not invertible.
 
 ### 3.3.3 Forward-Stagewise regression
-
-TODO
