@@ -1,7 +1,7 @@
 # Setup
-title:               Brian Lee's Blog
+title:               Brian's Blog
 # tagline:             'A Jekyll theme'
-description:         ''
+description:         'Brian Seungmin Lee'
 url:                 https://www.briansmlee.com
 # baseurl:             ''
 paginate:            5
@@ -12,7 +12,7 @@ author:
   name:              Brian Lee
   url:               https://twitter.com/brianleesm
   github_username:   bransmlee
-  email:             '[github username] [AT] gmail'
+  email:             '[Github username] [AT] gmail'
 
 # Gems
 plugins:
