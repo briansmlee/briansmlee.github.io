@@ -55,7 +55,7 @@ The mode maximizes the posterior (maximum a posteriori estimation):
 $$ \begin{align*}
 \hat{\beta}_{MAP} 
 &= \arg\max_{\beta} p(\beta \lvert y, X)\\
-&= \arg\max_{\beta} \log p(\beta \lvert y, X) && \text{log increases monotonically}\\
+&= \arg\max_{\beta} \log p(\beta \lvert y, X)\\
 &= \arg\max_{\beta} \log p(y \lvert \beta, X) + \log p(\beta)\\
 &= \arg\max_{\beta} \log \frac{\exp(- (y - X\beta)^T (y - X\beta) / 2\sigma^2)}{\sqrt{(2\pi)^N N \sigma^2}} + \log \frac{\exp(- \beta^T \beta / 2\gamma)}{\sqrt{(2\pi)^p p \gamma}}\\
 &= \arg\max_{\beta} -\frac{1}{2\sigma^2} (y - X\beta)^T (y - X\beta) - \frac{1}{2\gamma} \beta^T\beta\\
@@ -68,7 +68,7 @@ $$\nabla_{\beta} = \frac{1}{\sigma^2} X^Ty - \frac{1}{\sigma^2} X^TX\beta - \fra
 
 Hence, if $\gamma = \sigma^2 / \lambda$, the mode is equal to the ridge regression solution.
 
-For the mean, note that the posterior is Gaussian because $p(\beta \lvert y, X) \propto p(y \lvert \beta, X) p(\beta)$ and both likelihood and prior are Gaussian; see Paisley Lecture 5 for a more formal explanation. For a Gaussian distribution, mean is equal to the mode.
+For the mean, note that the posterior is Gaussian because $p(\beta \lvert y, X) \propto p(y \lvert \beta, X) p(\beta)$ and both likelihood and prior are Gaussian (see Paisley Lecture 5 for a more formal explanation). For a Gaussian distribution, mean is equal to the mode.
 
 References:
 * Paisley. [*ColumbiaX - CSMM.102x: Machine Learning*](https://www.edx.org/course/machine-learning). Lecture 4 and 5.
