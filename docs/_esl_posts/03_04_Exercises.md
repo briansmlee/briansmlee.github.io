@@ -41,7 +41,38 @@ For $\hat{\beta^c}$, since $\beta = \beta^c$ and the solution $(X^TX + \lambda I
 
 A similar result holds for the lasso intercept because the penalty term was not involved in characterizing $\hat{\beta^c_0}$.
 
+References:
+
+* Weatherwax and Epstein. *A Solution Manual and Notes for:
+The Elements of Statistical Learning*.
+
 ### 3.6
+
+*Assume likelihood $y \lvert \beta, X \sim N(X\beta, \sigma^2 I)$ and prior $\beta \sim N(0, \gamma I)$. Show that the mode and mean of the posterior is equivalent to the ridge regression estimate. Show relationship between $\lambda$, $\gamma$ and $\sigma^2$.*
+
+The mode maximizes the posterior (maximum a posteriori estimation):
+
+$$ \begin{align*}
+\hat{\beta}_{MAP} 
+&= \arg\max_{\beta} p(\beta \lvert y, X)\\
+&= \arg\max_{\beta} \log p(\beta \lvert y, X) && \text{log increases monotonically}\\
+&= \arg\max_{\beta} \log p(y \lvert \beta, X) + \log p(\beta)\\
+&= \arg\max_{\beta} \log \frac{\exp(- (y - X\beta)^T (y - X\beta) / 2\sigma^2)}{\sqrt{(2\pi)^N N \sigma^2}} + \log \frac{\exp(- \beta^T \beta / 2\gamma)}{\sqrt{(2\pi)^p p \gamma}}\\
+&= \arg\max_{\beta} -\frac{1}{2\sigma^2} (y - X\beta)^T (y - X\beta) - \frac{1}{2\gamma} \beta^T\beta\\
+&= \arg\max_{\beta} \frac{1}{\sigma^2} \beta^TX^Ty -\frac{1}{2\sigma^2} \beta^TX^TX\beta - \frac{1}{2\gamma} \beta^T\beta\\
+\end{align*} $$
+
+By taking derivative, we obtain
+
+$$\nabla_{\beta} = \frac{1}{\sigma^2} X^Ty - \frac{1}{\sigma^2} X^TX\beta - \frac{1}{\gamma} \beta = 0$$
+
+Hence, if $\gamma = \lambda^{-1} \sigma^2$, the mode is equal to the ridge regression solution.
+
+For the mean, note that the posterior is Gaussian because $p(\beta \lvert y, X) \propto p(y \lvert \beta, X) p(\beta)$ and both likelihood and prior are Gaussian; see Paisley Lecture 5 for a more formal explanation. For a Gaussian distribution, mean is equal to the mode.
+
+References:
+* Paisley. [*ColumbiaX - CSMM.102x: Machine Learning*](https://www.edx.org/course/machine-learning). Lecture 4 and 5.
+* [StackExchange answer](https://math.stackexchange.com/a/2211829/455856) by tibL.
 
 ### 3.7
 
