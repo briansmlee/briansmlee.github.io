@@ -13,7 +13,7 @@ usemathjax: true
 
 ### 3.5
 
-See Weatherwax and Epstein's solution. Below only adds a bit of explanation:
+See Weatherwax and Epstein's solution; below only adds a bit of explanation. $\beta$ below excludes the intercept $\beta_0$.
 
 *1. Show the correspondence between $\beta^c$ and $\beta$ and between $\beta^c_0$ and $\beta_0$.*
 
@@ -21,7 +21,7 @@ Rewrite the criteria (3.85) as $ \sum_i [y_i - (\beta^c_0 - \sum_j \overline{x}\
 
 Above is equivalent to the original ridge regression criteria (3.41) if $\beta_0 = \beta^c_0 - \sum_j \overline{x}\_{j} \beta^c_j$ and $\forall j > 0, \beta_j = \beta^c_j$.
 
-*2. Characterize (solve) the solution for $\beta^c_0$ and $\beta^c$*
+*2. Characterize (solve for) $\hat{\beta^c_0}$ and $\hat{\beta^c}$*
 
 Since we've shown the correspondence between $\beta^c$ and $\beta$, let's solve (3.41) for $\beta_0$ then replace. In vector form:
 
@@ -33,11 +33,13 @@ $$
 
 where we ignored the irrelevant terms in the first equality. Since $\beta_0 = \beta^c_0 - \overline{x}^T \beta^c$ and $\beta = \beta^c$ we obtain:
 
-$$ N \cdot \beta^c_0 = \sum_i y_i - \sum_i x_i^T \beta^c + N \cdot \overline{x}^T \beta^c$$
+$$ N \cdot \hat{\beta^c_0} = \sum_i y_i - \sum_i x_i^T \beta^c + N \cdot \overline{x}^T \beta^c$$
 
-The later two terms cancel out by definition of sample mean, so $\beta^c_0 = \frac{\sum_i y_i}{N} = \overline{y}$.
+The later two terms cancel out by definition of the sample mean, so $\hat{\beta^c_0} = \frac{\sum_i y_i}{N} = \overline{y}$.
 
-For $\hat{\beta^c}$, since $\beta = \beta^c$ and the solution $(X^TX + \lambda I)^{-1}X^Ty$ does not involve $\beta_0$, we have the same solution for $\hat{\beta^c}$.
+For $\hat{\beta^c}$, since $\beta = \beta^c$ and the solution $(X^TX + \lambda I)^{-1}X^Ty$ does not involve $\beta_0$, we have the same solution.
+
+A similar result holds for the lasso intercept because the penalty term was not involved in characterizing $\hat{\beta^c_0}$.
 
 ### 3.6
 
