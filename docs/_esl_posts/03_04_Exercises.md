@@ -66,7 +66,7 @@ By taking derivative, we obtain
 
 $$\nabla_{\beta} = \frac{1}{\sigma^2} X^Ty - \frac{1}{\sigma^2} X^TX\beta - \frac{1}{\gamma} \beta = 0$$
 
-Hence, if $\gamma = \lambda^{-1} \sigma^2$, the mode is equal to the ridge regression solution.
+Hence, if $\gamma = \sigma^2 / \lambda$, the mode is equal to the ridge regression solution.
 
 For the mean, note that the posterior is Gaussian because $p(\beta \lvert y, X) \propto p(y \lvert \beta, X) p(\beta)$ and both likelihood and prior are Gaussian; see Paisley Lecture 5 for a more formal explanation. For a Gaussian distribution, mean is equal to the mode.
 
