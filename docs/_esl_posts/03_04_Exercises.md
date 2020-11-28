@@ -93,6 +93,28 @@ which is proportional to the given sum.
 
 ### 3.8
 
+*Let $X$ be a of N x (p + 1) matrix with a first column of ones. Let $Q_2$ be the N x p matrix with first column removed from the QR decomposition of $X$. Let $\tilde{X}$ be the N x p centered matrix without the first column of $X$. Let $UDV^T$ be the SVD of $\tilde{X}$.*
+
+*1. Show that $Q_2$ and $U$ span the same subspace.*
+
+$U$ trivially spans $C(\tilde{X})$ because $DV^T$ gives the linear combinations. So, let's show that $Q_2$ also spans $C(\tilde{X})$, which is equivalent to linearly combining columns of $Q_2$ to obtain each $\tilde{x}\_j$.
+
+$$ \begin{align*} 
+\tilde{x}_j 
+&= x_j - \overline{x}_j \mathbf{1} && \text{$\mathbf{1}$ is vector of ones} \\
+&= x_j - (\frac{\mathbf{1}^T x_j}{N}) \mathbf{1}\\
+&= x_j - (\frac{\sqrt{N} q_0^T x_j}{N}) \sqrt{N} q_0 && \text{since $q_0 = \mathbf{1} / \sqrt{N} $}\\
+&= x_j - (q_0^T x_j) q_0\\
+&= \sum_{k = 0}^{j} (q_k^T x_j) q_k - (q_0^T x_j) q_0 && \text{from Gram-Schmidt (see below)}\\
+&= \sum_{k = 1}^{j} (q_k^T x_j) q_k
+\end{align*} $$
+
+which is a linear combination of the columns of $Q_2$.
+
+From Gram-Schmidt and QR decomposition, we know that $x_j = \sum_{k = 0}^{j} (q_k^T x_j) q_k$, a linear combination of ($x_j$'s projection onto) $q_k$ from $k=0$ to $j$ (see Strang Section 4.4).
+
+By subtracting $\overline{x}\_j \mathbf{1}$ or $(q_0^T x_j) q_0$ from $x_j$, we have removed the $q_0$'s contribution to that linear combination. Hence, $\tilde{x}\_j$ can be linearly combined without the first column of $Q$, only using columns of $Q_2$.
+
 ### 3.12
 
 ### 3.16
