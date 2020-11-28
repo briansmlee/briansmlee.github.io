@@ -76,6 +76,21 @@ References:
 
 ### 3.7
 
+*Assume $y_i \sim N(\beta_0 + x_i^T \beta, \sigma^2)$ and $\forall j > 0, \beta_j \overset{\text{i.i.d}}{\sim} N(0, \gamma^2)$. Show that the log-posterior is proportional to $\sum_i [(y_i - \beta_0 - x_i^T \beta)^2] + \lambda \beta^T\beta$ from (3.41).*
+
+Assuming that $y_i$ are conditionally independent:
+
+$$ \begin{align*}
+\log p(\beta \lvert y, X) &\propto \log p(y \lvert \beta, X) + \log p(\beta) \\
+&\propto \log \prod_i [p(y_i \lvert \beta, x_i)] + \log p(\beta) \\
+&\propto \sum_i [\log p(y_i \lvert \beta, x_i)] + \log p(\beta)\\
+&= \sum_i [\log \frac{\exp(- (y_i - \beta_0 - x_i^T \beta)^2 / 2 \sigma^2)}{\sigma \sqrt{2 \pi}}] + \log \frac{\exp(- \beta^T \beta / 2\gamma^2)}{\sqrt{(2\pi)^p p \gamma^2}}\\
+&\propto \sum_i [- \frac{1}{2\sigma^2} (y_i - \beta_0 - x_i^T \beta)^2] -\frac{1}{2\gamma^2} \beta^T \beta\\
+&= -\frac{1}{2\sigma^2} \sum_i [(y_i - \beta_0 - x_i^T \beta)^2] + \lambda \beta^T \beta\\
+\end{align*}$$
+
+which is proportional to the given sum.
+
 ### 3.8
 
 ### 3.12
