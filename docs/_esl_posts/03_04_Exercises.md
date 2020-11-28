@@ -111,9 +111,9 @@ $$ \begin{align*}
 
 which is a linear combination of the columns of $Q_2$.
 
-From Gram-Schmidt and QR decomposition, we know that $x_j = \sum_{k = 0}^{j} (q_k^T x_j) q_k$, a linear combination of ($x_j$'s projection onto) $q_k$ from $k=0$ to $j$ (see Strang Section 4.4).
+From Gram-Schmidt and QR decomposition, $r_{jk} = x_j^Tq_k$. So $x_j = Qr_j = \sum_{k = 0}^{j} (q_k^T x_j) q_k$, a linear combination of ($x_j$'s projection onto) $q_k$s from $k=0$ to $j$ (see Strang Section 4.4).
 
-By subtracting $\overline{x}\_j \mathbf{1}$ or $(q_0^T x_j) q_0$ from $x_j$, we have removed the $q_0$'s contribution to that linear combination. Hence, $\tilde{x}\_j$ can be linearly combined without the first column of $Q$, only using columns of $Q_2$.
+By subtracting $\overline{x}\_j \mathbf{1}$ or $(q_0^T x_j) q_0$ from $x_j$, we have removed the $q_0$'s contribution to that linear combination. Hence, $\tilde{x}\_j$ can be linearly combined without the first column of $Q$, only using the columns of $Q_2$.
 
 ### 3.12
 
