@@ -40,3 +40,5 @@ Greedy. Higher RSS than best-subset selection, but:
 Unlike Forward, Backward cannot be used if $ N <= p $ because $X^TX$ in the Z-score is not invertible.
 
 ### 3.3.3 Forward-Stagewise regression
+
+At each step, selects a feature that is most correlated with the current residual. To current coefficient of that feature, adds univariate linear regression coefficient of the residual onto that feature.
