@@ -123,6 +123,20 @@ Follows from $X_{new}^T X_{new} = X^T X + \lambda I_p$ and $X_{new}^T y_{new} = 
 
 ### 3.16
 
+*If columns of $X$ are orthonormal:*
+
+*1. Subset Selection estimate is $\hat{\beta}\_j \cdot I[\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert]$.*
+
+$$ \begin{align*}
+RSS_{subset} 
+&= \lVert y - X_{subset}\hat{\beta}_{subset} \rVert^2 \\
+&= \lVert y - X\hat{\beta} + \sum_{j \in D} \hat{\beta}_j x_j \rVert^2 && \text{let D be the set of dropped coefficients' indices} \\
+&= \lVert y - X\hat{\beta} \rVert^2 + \sum_{j \in D} \hat{\beta}_j^2 \lVert x_j \rVert^2 && \text{residual and $x_j$s are orthogonal}\\
+&= RSS + \sum_{j \in D} \hat{\beta}_j^2 && \text{$x_j$ are normal}\\
+\end{align*} $$
+
+Hence subset selection drops coefficients with smallest $\lvert \hat{\beta}\_j \rvert$ to minimize $RSS\_{subset}$. i.e. keep coefficients $\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert$.
+
 ### 3.17
 
 ### 3.23
