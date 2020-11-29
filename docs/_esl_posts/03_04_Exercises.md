@@ -101,7 +101,7 @@ $U$ trivially spans $C(\tilde{X})$ because $DV^T$ gives the linear combinations.
 
 $$ \begin{align*} 
 \tilde{x}_j 
-&= x_j - \overline{x}_j \mathbf{1} && \text{$\mathbf{1}$ is vector of ones} \\
+&= x_j - \overline{x}_j \mathbf{1}\\
 &= x_j - (\frac{\mathbf{1}^T x_j}{N}) \mathbf{1}\\
 &= x_j - (\frac{\sqrt{N} q_0^T x_j}{N}) \sqrt{N} q_0 && \text{since $q_0 = \mathbf{1} / \sqrt{N} $}\\
 &= x_j - (q_0^T x_j) q_0\\
@@ -113,9 +113,13 @@ which is a linear combination of the columns of $Q_2$.
 
 From Gram-Schmidt and QR decomposition, $r_{jk} = x_j^Tq_k$. So $x_j = Qr_j = \sum_{k = 0}^{j} (q_k^T x_j) q_k$, a linear combination of ($x_j$'s projection onto) $q_k$s from $k=0$ to $j$ (see Strang Section 4.4).
 
-By subtracting $\overline{x}\_j \mathbf{1}$ or $(q_0^T x_j) q_0$ from $x_j$, we have removed the $q_0$'s contribution to that linear combination. Hence, $\tilde{x}\_j$ can be linearly combined without the first column of $Q$, only using the columns of $Q_2$.
+By subtracting $\overline{x}\_j \mathbf{1}$ or $(q_0^T x_j) q_0$ from $x_j$, we have removed the $q_0$'s contribution to that linear combination. Hence, $\tilde{x}\_j$ can be linearly combined without the first column of $Q$ thereby only using the columns of $Q_2$.
 
 ### 3.12
+
+*Augment $X$ with $\sqrt{\lambda}I\_{p}$ and $y$ with $\mathbf{0}\_{p}$ additional rows. Show that OLS estimate on the augmented data yields ridge regression estimates for $X$ and $y$.*
+
+Follows from $X_{new}^T X_{new} = X^T X + \lambda I_p$ and $X_{new}^T y_{new} = X^T y$ using block multiplication (see Strang Section 2.4).
 
 ### 3.16
 
