@@ -123,19 +123,28 @@ Follows from $X_{new}^T X_{new} = X^T X + \lambda I_p$ and $X_{new}^T y_{new} = 
 
 ### 3.16
 
-*If columns of $X$ are orthonormal:*
+*If columns of $X$ are orthonormal find j-th coefficient estimate.*
 
-*1. Subset Selection estimate is $\hat{\beta}\_j \cdot I[\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert]$.*
+*1. Subset Selection estimate is $\hat{\beta}\_j \cdot I[\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert]$*
 
 $$ \begin{align*}
 RSS_{subset} 
 &= \lVert y - X_{subset}\hat{\beta}_{subset} \rVert^2 \\
 &= \lVert y - X\hat{\beta} + \sum_{j \in D} \hat{\beta}_j x_j \rVert^2 && \text{let D be the set of dropped coefficients' indices} \\
-&= \lVert y - X\hat{\beta} \rVert^2 + \sum_{j \in D} \hat{\beta}_j^2 \lVert x_j \rVert^2 && \text{residual and $x_j$s are orthogonal}\\
+&= \lVert y - X\hat{\beta} \rVert^2 + \lVert \sum_{j \in D} \hat{\beta}_j^2 x_j \rVert^2 && \text{residual and linear combination of $x_j$s are orthogonal}\\
+&= \lVert y - X\hat{\beta} \rVert^2 + \sum_{j \in D} \hat{\beta}_j^2 \lVert x_j \rVert^2 && \text{$x_j$s are mutually orthogonal}\\
 &= RSS + \sum_{j \in D} \hat{\beta}_j^2 && \text{$x_j$ are normal}\\
 \end{align*} $$
 
 Hence subset selection drops coefficients with smallest $\lvert \hat{\beta}\_j \rvert$ to minimize $RSS\_{subset}$. i.e. keep coefficients $\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert$.
+
+*2. Ridge estimate is $\hat{\beta}\_j / (1 + \lambda)$*
+
+Because $(X^TX + \lambda I)^{-1}X^Ty = (I + \lambda I)^{-1}X^Ty = X^Ty / (1 + \lambda)$ and OLS estimate is $X^Ty$.
+
+*3. Lasso estimate is $sign(\hat{\beta}_{j})(\lvert \hat{\beta}_{j} \rvert - \lambda)\_{+}$*
+
+See [this StackExchange answer](https://stats.stackexchange.com/a/17786/261782) by user cardinal.
 
 ### 3.17
 
