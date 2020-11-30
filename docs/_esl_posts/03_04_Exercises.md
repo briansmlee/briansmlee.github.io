@@ -136,7 +136,7 @@ RSS_{subset}
 &= RSS + \sum_{j \in D} \hat{\beta}_j^2 && \text{$x_j$ are normal}\\
 \end{align*} $$
 
-Hence subset selection drops coefficients with smallest $\lvert \hat{\beta}\_j \rvert$ to minimize $RSS\_{subset}$. i.e. keep coefficients $\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert$.
+Hence to minimize $RSS\_{subset}$, subset selection drops coefficients with smallest $\lvert \hat{\beta}\_j \rvert$ or keeps coefficients $\lvert \hat{\beta_j} \rvert  \geq \lvert \hat{\beta}\_{(M)} \rvert$.
 
 *2. Ridge estimate is $\hat{\beta}\_j / (1 + \lambda)$*
 
