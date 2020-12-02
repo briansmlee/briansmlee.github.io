@@ -10,7 +10,7 @@ usemathjax: true
 
 **Decision boundary** divides the feature space into labeled regions. We focus on **linear decision boundaries**.
 
-**Discriminant analysis** models **discriminant function $\delta_k(x)$** for each class, then classifies to $\arg\max_k \hat{\delta_k}(x)$. 
+**Discriminant analysis** models **discriminant function $\delta_k(x)$** for each class, then classifies to $\hat{G}(x) = \arg\max_k \hat{\delta_k}(x)$. 
 - Decision boundary is $\delta_1(x) = \delta_2(x)$. 
 - Example: fit $k$ linear regression models to class indicator responses. Hyperplane decision boundaries.
 
@@ -24,5 +24,4 @@ Alternative to discriminant analysis is explicitly modeling a linear boundary; *
 - Perceptron
 - Optimally separating hyperplane
 
-Generalizations: with quadratic basis expansion, linear functions in augmented space map down to quadratic functions in original space.
-
+Generalizations: with quadratic basis expansion, linear decision boundary in augmented space map down to quadratic decision boundary in the original space.

@@ -18,13 +18,11 @@ permalink: /esl/
 	{% for section_group in posts_by_section %}
 		{% assign posts_in_section = section_group.items %}
 		<li>
-		{{ posts_in_section[0].section_title }} 
-		[
+		{{ posts_in_section[0].section_title }} -
 			{% for post in posts_in_section %}
 				<a href="{{ post.url }}">{{ post.type }}</a>
 				{% if forloop.last == false %} | {% endif %}
 			{% endfor %}
-		]
 		</li>
 	{% endfor %}
 	</ul>
