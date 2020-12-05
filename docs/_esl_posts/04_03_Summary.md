@@ -13,9 +13,11 @@ usemathjax: true
 
 ### LDA and QDA
 
-Bayes classifier: $\hat{G}(x)= \arg\max_{k} P(G = k \lvert X = x) = \arg\max_{k} \frac{P(X = x \lvert G = k) P(G = k)}{\sum_{l=1}^K P(X = x \lvert G = l) P(G = l)}$. Both LDA and QDA model each class-conditional density as Gaussian.
+Recall Bayes classifier: $\hat{G}(x)= \arg\max_{k} P(G = k \lvert X = x) = \arg\max_{k} P(X = x \lvert G = k) P(G = k)$. 
+Both LDA and QDA model each class-conditional density as Gaussian.
 
-LDA arises with common covariance.
+
+LDA arises with a common class-conditional density covariance.
 - Pairwise decision boundary is linear (hyperplane) because log-ratio is linear.
 - Linear discriminant functions yield same decision boundary.
 - Estimate prior, mean, and common covariance.
@@ -24,7 +26,7 @@ LDA and linear regression:
 - If two-class, LDA direction is proportional to the coefficient vector from linear regression with +1 and -1 responses.
 - If multi-class, LDA avoids the masking problem unlike linear regression.
 
-QDA arises with differing covariance. 
+QDA arises with differing covariances. 
 - Log-ratio, pairwise decision boundary, and discriminant functions are quadratic.
 - Estimate covariance matrix for each class.
 - TODO: LDA has $O(K \cdot p)$ parameters whereas QDA has $O(K \cdot p^2)$.
@@ -36,3 +38,9 @@ LDA and QDA may perform well due to bias-variance tradeoff; incur bias of linear
 Let each covariance be a weighted mix of common and individual covariances. Choose weight via cross-validation.
 
 ### 4.3.2 Computations for LDA
+
+If we sphere the data using SVD of $\hat{\Sigma}$, we can implement LDA by nearest centroid classification.
+
+### 4.3.3 Reduced-Rank LDA
+
+
