@@ -43,4 +43,10 @@ If we sphere the data using SVD of $\hat{\Sigma}$, we can implement LDA by neare
 
 ### 4.3.3 Reduced-Rank LDA
 
+LDA is nearest centroid classification with sphered data. Since the centroids span a subspace $H_{K - 1}$ of dimension at most $K - 1$, we can project the p-dimensional data to $H_{K - 1}$ for classification without loss of information.
 
+We can further reduce the dimension to $L < K - 1$, by selecting principal component subspace of the $H_{K - 1}$.
+
+TODO: Prediction with reduced dimension.
+
+TODO: Fisher's problem. More analysis.
