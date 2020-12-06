@@ -30,10 +30,17 @@ TODO: Newton-Raphson algorithm
 
 ### 4.4.4 $L_1$ Regularized Logistic Regression
 
-Add $L_1$ penalty to log-likelihood.
+Add $L_1$ penalty to log-likelihood for variable selection and shrinkage. 
+
+TODO: Optimization methods:
+- Nonlinear programming of concave function
+- Weighted Lasso using quadratic approximations from Newton algorithm
+- Path algorithms (LAR)
+- Coordinate descent is efficient
 
 ### 4.4.5 Logistic Regression or LDA?
 
+Log-posterior odds for both models are linear. However, logistic regression maximizes conditional likelihood $P(G = k \lvert X = x)$ whereas LDA maximizes joint-likelihood $P(G = k, X = x)$.
 
 
 
