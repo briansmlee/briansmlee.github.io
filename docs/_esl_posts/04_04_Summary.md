@@ -40,7 +40,11 @@ TODO: Optimization methods:
 
 ### 4.4.5 Logistic Regression or LDA?
 
-Log-posterior odds for both models are linear. However, logistic regression maximizes conditional likelihood $P(G = k \lvert X = x)$ whereas LDA maximizes joint-likelihood $P(G = k, X = x)$.
+Log-posterior odds for both models are linear. However, 
+- Logistic regression fits $P(G \lvert X)$ by maximizing (multinomial) conditional likelihood 
+- LDA fits $P(X, G = k) = P(X \lvert G = k) P(G = k)$ by maximizing full likelihood
+
+Equivalently, LDA fits marginal mixture density $$P(X) = \sum_k \pi_k \phi(X; \mu_k, \Sigma)$$.
 
 
 
