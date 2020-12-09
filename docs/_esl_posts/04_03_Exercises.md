@@ -13,6 +13,9 @@ usemathjax: true
 
 ### 4.1
 
+(a) Follows from rearranging terms in $\hat{\delta}\_2(x) > \hat{\delta}\_1(x)$ using LDA discriminant functions from (4.10).
+
+
 ### 4.2
 
 ### 4.3
