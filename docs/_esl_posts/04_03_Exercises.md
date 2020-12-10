@@ -13,6 +13,8 @@ usemathjax: true
 
 ### 4.1
 
+### 4.2
+
 (a) Follows from rearranging terms in $\hat{\delta}\_2(x) > \hat{\delta}\_1(x)$ using LDA discriminant functions from (4.10).
 
 (b) Let's obtain the normal equations for (4.55) w.r.t. $\beta$ and show that it is equivalent to (4.56).
@@ -35,9 +37,6 @@ Let's show that above is equivalent to (4.56).
 
 $$ N (\hat{\mu}_1 - \hat{\mu}_2) = - \frac{N}{N_1} \sum_{g_i = 1} x_i + \frac{N}{N_2} \sum_{g_i = 2} x_i = \sum_{g_i = 1} y_i x_i + \sum_{g_i = 2} y_i x_i = X^T y = X^T C y$$
 
-
-
-### 4.2
 
 ### 4.3
 
