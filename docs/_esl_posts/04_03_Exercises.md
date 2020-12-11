@@ -21,7 +21,7 @@ usemathjax: true
 
 We can rewrite (4.55) as $RSS = \lVert y_i - \mathbf{1} \beta_0 - X \beta \rVert^2$.
 
-Then $\frac{d}{d \beta_0} RSS = \frac{d}{d \beta_0} - 2 \beta_0 \mathbf{1}^T y - 2 \beta_0 \mathbf{1}^T X\beta + \beta_0^2 \mathbf{1}^T \mathbf{1} = - 2 \mathbf{1}^T y + 2 \mathbf{1}^T X \beta + 2N \beta_0$, hence $N \beta_0 = \mathbf{1}^T y - \mathbf{1}^T X \beta$.
+Then $\frac{d}{d \beta_0} RSS = \frac{d}{d \beta_0} - 2 \beta_0 \mathbf{1}^T y - 2 \beta_0 \mathbf{1}^T X\beta + \beta_0^2 \mathbf{1}^T \mathbf{1} = - 2 \mathbf{1}^T y + 2 \mathbf{1}^T X \beta + 2N \beta_0$. Hence $N \beta_0 = \mathbf{1}^T y - \mathbf{1}^T X \beta$.
 
 Since $\frac{\partial}{\partial \beta} RSS$ gives $X^TX \beta = X^T(y - \mathbf{1} \beta_0)$, we substitute $\beta_0$ from above to obtain
 
@@ -33,10 +33,30 @@ $$ X^T C X \beta = X^T C y $$
 
 Let's show that above is equivalent to (4.56). 
 
-*RHS:* Note that $Cy = y$ because the mean $\overline{y}$ that centering matrix subtracts from each $y_i$ is $N_1 \cdot - \frac{N}{N1} + N_2 \cdot \frac{N}{N2} = 0$. Then, $X^TCy$ is equal to $N (\hat{\mu}\_1 - \hat{\mu}\_2)$ because:
+**RHS**: Note that $Cy = y$ because the mean $\overline{y}$ that centering matrix subtracts from each $y_i$ is $N_1 \cdot - \frac{N}{N1} + N_2 \cdot \frac{N}{N2} = 0$. Then, $X^TCy$ is equal to $N (\hat{\mu}\_1 - \hat{\mu}\_2)$ because:
 
 $$ N (\hat{\mu}_1 - \hat{\mu}_2) = - \frac{N}{N_1} \sum_{g_i = 1} x_i + \frac{N}{N_2} \sum_{g_i = 2} x_i = \sum_{g_i = 1} y_i x_i + \sum_{g_i = 2} y_i x_i = X^T y = X^T C y$$
 
+**LHS**: Similarly, $CX$ centers each column/feature of $X$. So, $i$-th row of $CX$ is $x_i - \frac{N_1}{N} \hat{\mu}\_1 - \frac{N_2}{N} \hat{\mu}\_2$.
+
+Then, view $X^T CX = (X^T){(CX)^T}^T$ as sum of outer products, $\sum_i x_i (x_i - \frac{N_1}{N} \hat{\mu}\_1 - \frac{N_2}{N} \hat{\mu}\_2)^T$, which becomes
+
+$$ \begin{align*}
+X^T CX 
+&= \sum_i x_i (x_i - \frac{N_1}{N} \hat{\mu}_1 - \frac{N_2}{N} \hat{\mu}_2)^T\\
+&= \sum_i x_i x_i^T - \sum_{g_i = 1} \frac{N_1}{N} x_i \hat{\mu}_1^T - \sum_{g_i = 2} \frac{N_1}{N} x_i \hat{\mu}_1^T - \sum_{g_i = 1} \frac{N_2}{N} x_i \hat{\mu}_2^T - \sum_{g_i = 2} \frac{N_2}{N} x_i \hat{\mu}_2^T \\
+&= \sum_i x_i x_i^T - \frac{N_1^2}{N} \hat{\mu}_1 \hat{\mu}_1^T - \frac{N_2^2}{N} \hat{\mu}_2 \hat{\mu}_2^T - \frac{2 N_1 N_2}{N} \hat{\mu}_1 \hat{\mu}_2^T \\
+\end{align*} $$
+
+due to $[\sum_{g_i = 1} x_i] \hat{\mu}\_1^T = N_1 \hat{\mu}\_1 \hat{\mu}\_1^T$ and its variations. The LHS of (4.56) also reduces to:
+
+$$ \begin{align*}
+(N - 2) \hat{\Sigma} + N \hat{\Sigma}_B 
+&= \sum_{g_i = 1} (x_i - \hat{\mu_1}) (x_i - \hat{\mu_1})^T + \sum_{g_i = 2} (x_i - \hat{\mu_2}) (x_i - \hat{\mu_2})^T + \frac{N_1 N_2}{N} (\hat{\mu_2} - \hat{\mu_1}) (\hat{\mu_2} - \hat{\mu_1})^T \\
+&= \sum_{i} x_i x_i^T - N_1 \hat{\mu}_1 \hat{\mu}_1^T - N_2 \hat{\mu}_2 \hat{\mu}_2^T + \frac{N_1 N_2}{N} (\hat{\mu_2} \hat{\mu_2}^T - 2 \hat{\mu_1} \hat{\mu_2}^T + \hat{\mu_1} \hat{\mu_1}^T)
+\end{align*} $$
+
+which is equivalent to $X^TCX$ above because $\frac{N_1 N_2}{N} - N_1 = \frac{N_1 (N_2 - N)}{N} = - \frac{N_1^2}{N}$.
 
 ### 4.3
 
