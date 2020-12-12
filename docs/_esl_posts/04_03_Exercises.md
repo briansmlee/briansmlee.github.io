@@ -15,6 +15,8 @@ usemathjax: true
 
 ### 4.2
 
+*Please see the problem statement in the book.*
+
 (a) Follows from rearranging terms in $\hat{\delta}\_2(x) > \hat{\delta}\_1(x)$ using LDA discriminant functions from (4.10).
 
 (b) Let's obtain the normal equations for (4.55) w.r.t. $\beta$ and show that it is equivalent to (4.56).
@@ -57,6 +59,12 @@ $$ \begin{align*}
 \end{align*} $$
 
 which is equivalent to $X^TCX$ above because $\frac{N_1 N_2}{N} - N_1 = \frac{N_1 (N_2 - N)}{N} = - \frac{N_1^2}{N}$.
+
+(c) $\hat{\Sigma}\_B \beta$ is in the direction of $(\hat{\mu}\_2 - \hat{\mu}\_1)$ because $(\hat{\mu}\_2 - \hat{\mu}\_1)^T \beta$ in $\hat{\Sigma}\_B \beta$ is a scalar. (4.57) follows from moving $\hat{\Sigma}\_B \beta$ to RHS and rearranging the terms.
+
+(d)
+
+(e)
 
 ### 4.3
 
