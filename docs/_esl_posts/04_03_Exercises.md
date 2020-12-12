@@ -54,8 +54,8 @@ due to $[\sum_{g_i = 1} x_i] \hat{\mu}\_1^T = N_1 \hat{\mu}\_1 \hat{\mu}\_1^T$ a
 
 $$ \begin{align*}
 (N - 2) \hat{\Sigma} + N \hat{\Sigma}_B 
-&= \sum_{g_i = 1} (x_i - \hat{\mu_1}) (x_i - \hat{\mu_1})^T + \sum_{g_i = 2} (x_i - \hat{\mu_2}) (x_i - \hat{\mu_2})^T + \frac{N_1 N_2}{N} (\hat{\mu_2} - \hat{\mu_1}) (\hat{\mu_2} - \hat{\mu_1})^T \\
-&= \sum_{i} x_i x_i^T - N_1 \hat{\mu}_1 \hat{\mu}_1^T - N_2 \hat{\mu}_2 \hat{\mu}_2^T + \frac{N_1 N_2}{N} (\hat{\mu_2} \hat{\mu_2}^T - 2 \hat{\mu_1} \hat{\mu_2}^T + \hat{\mu_1} \hat{\mu_1}^T)
+&= \sum_{g_i = 1} (x_i - \hat{\mu}_1) (x_i - \hat{\mu}_1)^T + \sum_{g_i = 2} (x_i - \hat{\mu}_2) (x_i - \hat{\mu}_2)^T + \frac{N_1 N_2}{N} (\hat{\mu}_2 - \hat{\mu}_1) (\hat{\mu}_2 - \hat{\mu}_1)^T \\
+&= \sum_{i} x_i x_i^T - N_1 \hat{\mu}_1 \hat{\mu}_1^T - N_2 \hat{\mu}_2 \hat{\mu}_2^T + \frac{N_1 N_2}{N} (\hat{\mu}_2 \hat{\mu}_2^T - 2 \hat{\mu}_1 \hat{\mu}_2^T + \hat{\mu}_1 \hat{\mu}_1^T)
 \end{align*} $$
 
 which is equivalent to $X^TCX$ above because $\frac{N_1 N_2}{N} - N_1 = \frac{N_1 (N_2 - N)}{N} = - \frac{N_1^2}{N}$.
