@@ -13,6 +13,17 @@ usemathjax: true
 
 ### 4.1
 
+See [this Khan Academy post](https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/constrained-optimization/a/lagrange-multipliers-examples) on using Lagrange multipliers. To find $a$ that maximizes $a^T B a$ subject to $a^T W a = 1$, we can find the critical points of the Lagrange function.
+
+Lagrange function is $L(a, \lambda) = a^T B a - \lambda (a^T W a - 1)$.
+
+Critical points of $L$ satisfy $ \frac{\partial L}{\partial a} = 2 B a - 2 \lambda W a = \mathbf{0}$ (and the original constraint $ \frac{\partial}{\partial \lambda} = a^T W a - 1 = 0$). Rearranging terms, we obtain a [generalized eigenvalue problem](https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix#Generalized_eigenvalue_problem), $ Ba = \lambda Wa$.
+
+If $W$ is invertible, this can be transformed to standard eigenvalue problem, $W^{-1}Ba = \lambda a$. So, among the eigenvectors of $W^{-1}B$, we select the one that maximizes $a^T B a$.
+
+
+
+
 ### 4.2
 
 *Please see the problem statement in the book.*
@@ -67,6 +78,7 @@ which is equivalent to $X^TCX$ above because $\frac{N_1 N_2}{N} - N_1 = \frac{N_
 (e)
 
 ### 4.3
+
 
 ### 4.8
 
