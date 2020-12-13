@@ -50,4 +50,3 @@ Reference:
 
 * Weatherwax and Epstein. *A Solution Manual and Notes for:
 The Elements of Statistical Learning*.
-
