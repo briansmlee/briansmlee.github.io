@@ -42,4 +42,6 @@ $$
 = \sum_{i=1}^N (y_{i1} - p_{i1}) x_i
 $$
 
+TODO: find Hessian by blocks.
+
 ### 4.5
