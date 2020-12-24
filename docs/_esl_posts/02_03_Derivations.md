@@ -8,6 +8,9 @@ type: Derivations
 usemathjax: true
 ---
 
-### Derive normal equations
+* toc 
+{:toc}
+
+### (2.5) Normal equations
 
 See [Derivation of (3.4)](/esl/03_02_Derivations)
