@@ -33,8 +33,14 @@ usemathjax: true
 
 ### (4.31) L-1 regularized log-likelihood is concave
 
+### (Section 4.4.4) Optimization methods for L-1 regularized logistic regression
+
 ### (Section 4.4.5) LDA is generative and logistic regression is discriminative
 
 (Not stated in book.)
 
 ### (4.37) Maximizing full log-likelihood gives LDA parameter estimates
+
+### (p128) LDA is not robust to gross outliers
+
+### (p128) Marginal likelihood as a regularizer
