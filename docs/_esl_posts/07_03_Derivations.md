@@ -38,7 +38,7 @@ $$ \begin{align*}
 
 TODO: Show $\varepsilon$ and $\mathcal{T}$ are independent if $\varepsilon_i$ are i.i.d and $\varepsilon$ and training features $X$ are independent.
 
-### (7.10) Bias-variance decomposition of KNN EPE
+### (7.10) Bias-variance decomposition of K-nearest neighbors EPE
 
 Note $$\hat{f}(x_0) = \frac{1}{k} \sum^k_{l=1} y_l = \frac{1}{k} \sum^k_{l=1} f(x_l) + \varepsilon_l$$. Then, $$E[\hat{f}(x_0)] = \frac{1}{k} \sum^k_{l=1} E[f(x_l)] + \cancelto{0}{E[\varepsilon_l]} = \frac{1}{k} \sum^k_{l=1} f(x_l)$$.
 
