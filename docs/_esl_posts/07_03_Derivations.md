@@ -8,10 +8,10 @@ type: Derivations
 usemathjax: true
 ---
 
-$\require{cancel}$
-
 * toc
 {:toc}
+
+$\require{cancel}$
 
 ### (7.9) Bias-variance decomposition of expected prediction error (EPE) using squared loss
 
