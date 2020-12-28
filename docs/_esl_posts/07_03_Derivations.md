@@ -71,3 +71,7 @@ where last equality assumes $Cov(y_i,y_j) = 0$.
 $$\sum_i h(x_i)^T h(x_i) = \sum_i x^T_i (X^TX)^{-1} x_i = tr[X(X^TX)^{-1}X^T] = tr[I_p] = p$$
 
 So, $$\frac{1}{N} \sum_i \lVert h(x_i) \rVert^2 \sigma^2_\varepsilon = \frac{p}{N} \sigma^2_\varepsilon$$.
+
+### (7.14) Decompose expected squared bias of linear model into model bias and estimation bias
+
+See [this Cross Validated answer](https://stats.stackexchange.com/a/336517/261782) by Lei.
