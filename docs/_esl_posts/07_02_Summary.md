@@ -8,9 +8,6 @@ type: Summary
 usemathjax: true
 ---
 
-* toc
-{:toc}
-
 **Generalization performance** relates to prediction capability on independent test data. How do we assess generalization performance and use it to select models?
 
 - **Test/prediction/generalization error** is $$Err_{T} = E_{X,Y}[L(Y, \hat{f}(X)) \lvert T]$$. 
@@ -20,7 +17,7 @@ usemathjax: true
 While our goal is to estimate $Err_{T}$, we often estimate $Err$. $\overline{err}$ is not a good estimate of test error, since $\overline{err}$ drops to zero as we increase model complexity.
 
 We estimate (expected) test error for two reasons:
-- **Model selection**: As complexity $\uparrow$, variance $\uparrow$ but bias $\downarrow$ Select complexity-tuning parameters $\alpha$ that minimizes EPE.
+- **Model selection**: As complexity $\uparrow$, variance $\uparrow$ and bias $\downarrow$ Select complexity-tuning parameters $\alpha$ that minimizes EPE.
 - **Model assessment**: Estimate test error for the selected model.
 
 Use validation set for model selection and test set only for assessment.
