@@ -28,7 +28,7 @@ using linearity of expectation to move the sum outside of $E_\mathbf{y}$. We nee
 
 $$ \frac{1}{N} \sum^N_{i=1} 2 Cov(\hat{y_i}, y_i) = \frac{1}{N} \sum^N_{i=1} 2 E_\mathbf{y}[(y_i - E_\mathbf{y}[y_i])(\hat{y_i} - E_\mathbf{y}[\hat{y_i}])]$$
 
-assuming that $y_i = f(x_i) + \varepsilon_i$, where $E[\varepsilon_i] = 0$ and $Var[\varepsilon_i] = \sigma^2$. Errors are i.i.d. Also, assume $Y_i^0 = f(x_i) + \varepsilon_i^0$.
+assuming that $y_i = f(x_i) + \varepsilon_i$, where $E[\varepsilon_i] = 0$ and $Var[\varepsilon_i] = \sigma^2$. Also, assume $Y_i^0 = f(x_i) + \varepsilon_i^0$. Errors are i.i.d.
 
 In essence, there are two random variables, the training responses $\mathbf{y}$ and the new observation $Y_i^0$ at $x_i$ from $Err_{in}$. Randomness comes from the errors $\varepsilon$. All the variables except $f(x_i)$ are random as they are a function of $\mathbf{y}$ or $Y_i^0$.
 
