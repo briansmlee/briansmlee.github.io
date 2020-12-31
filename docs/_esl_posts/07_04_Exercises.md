@@ -25,6 +25,16 @@ Then $E[(y - E[y])(y_i - E[y_i])] = E[\varepsilon \cdot \varepsilon_i]$, a N-vec
 
 $$\sum_i h_i^T E[(y - E[y])(y_i - E[y_i])]) = tr[X(X^TX)^{-1}X^T \sigma^2 I_N] = \sigma^2 tr[\cancelto{I_d}{X^TX(X^TX)^{-1}}] = d \sigma^2 $$ 
 
+More succinctly, 
+
+$$ \begin{align*}
+\sum_{i=1}^N Cov(\hat{y_i}, y_i) 
+&= tr[Cov(\hat{y}, y)] \\
+&= tr[E[(\hat{y} - E[\hat{y}])(y - E[y])^T]] \\
+&= tr[X(X^TX)^{-1}X^T \cancelto{Var(y) = \sigma^2 I_N}{(y - E[y])(y - E[y])^T}] \\
+&= d \sigma^2
+\end{align*} $$
+
 ### 7.4
 
 See Weatherwax solution, contributed by Franklin Wang. I think the solution below uses same assumptions.

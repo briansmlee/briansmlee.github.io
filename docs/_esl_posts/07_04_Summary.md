@@ -22,6 +22,5 @@ While our goal is to estimate $Err_{\mathcal{T}}$, we often estimate $Err$. Simi
 
 For squared, 0-1, and other loss functions, $\omega = \frac{2}{N} \sum^N_{i=1} Cov(\hat{y_i}, y_i)$, "how strongly $y_i$ affects its own prediction". $\omega = \frac{2}{N} d \sigma^2_\varepsilon$ for linear fit $\hat{y_i}$ and approximately for other losses. Optimism $\uparrow$ as $d \uparrow$ and $N \downarrow$.
 
-AIC and BIC proxy $Err$ using $E_y(Err_{in}) = E_y(\overline{err}) + \omega$. Cross-validation and bootstrap directly estimate the $Err$. Comparing relative in-sample errors are effective for model selection.
-
+AIC and BIC proxy $Err$ by estimating $Err_{in}$ as $\overline{err} + \hat{\omega}$. Cross-validation and bootstrap directly estimate the $Err$. Comparing relative in-sample errors are effective for model selection.
 
