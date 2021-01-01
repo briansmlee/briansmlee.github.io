@@ -15,25 +15,19 @@ $\require{cancel}$
 
 ### 7.1
 
-Let $h_i = X(X^TX)^{-1}x_i$. Then $\hat{y_i} - E[\hat{y_i}] = h_i^T(y - E[y])$. Therefore
+*Show (7.23)*
 
-$$\sum_i Cov(\hat{y_i}, y_i) = \sum_i E[(\hat{y_i} - E[\hat{y_i}])(y_i - E[y_i])] = \sum_i h_i^T E[(y - E[y])(y_i - E[y_i])])$$
-
-$E[y_i] = f(x_i) + E[\varepsilon_i] = f(x_i)$. So $y_i - E[y_i] = \varepsilon_i$ and $y - E[y]$ is a N-vector $\varepsilon$ of errors $\varepsilon_i$.
-
-Then $E[(y - E[y])(y_i - E[y_i])] = E[\varepsilon \cdot \varepsilon_i]$, a N-vector where the i-th term is $E[\varepsilon_i^2] = \sigma^2$ and other (j-th) terms are $E[\varepsilon_i \varepsilon_j] = E[\varepsilon_i] E[\varepsilon_j] = 0$ since $i \neq j$ and errors are independent. Hence
-
-$$\sum_i h_i^T E[(y - E[y])(y_i - E[y_i])]) = tr[X(X^TX)^{-1}X^T \sigma^2 I_N] = \sigma^2 tr[\cancelto{I_d}{X^TX(X^TX)^{-1}}] = d \sigma^2 $$ 
-
-More succinctly, 
+We assume additive error model, so $Var(y) = \sigma^2_\varepsilon I$.
 
 $$ \begin{align*}
 \sum_{i=1}^N Cov(\hat{y_i}, y_i) 
 &= tr[Cov(\hat{y}, y)] \\
 &= tr[E[(\hat{y} - E[\hat{y}])(y - E[y])^T]] \\
-&= tr[X(X^TX)^{-1}X^T \cancelto{Var(y) = \sigma^2 I_N}{(y - E[y])(y - E[y])^T}] \\
-&= d \sigma^2
+&= tr[X(X^TX)^{-1}X^T \cancelto{Var(y) = \sigma^2_\varepsilon I_N}{E[(y - E[y])(y - E[y])^T]}] \\
+&= d \sigma^2_\varepsilon
 \end{align*} $$
+
+where all expectations are over $y$.
 
 ### 7.4
 
