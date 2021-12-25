@@ -30,4 +30,6 @@ collections:
   esl_posts:
     output: true
     sort_by: section_title
+  stat_110:
+    output: true
 
